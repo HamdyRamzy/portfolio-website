@@ -17,20 +17,20 @@
 
 /*Start dark theme*/
 .darkmode {
-	--navbarBackgroundColor:#192734;
-	--bodyColor:#15202b;
-	--headerBackgroundColor:#192734;
-	--mainText:#e4e4e4;
-	--secondaryText:#929292;
-	--topBarBacgroundColor:#778492;
-	--cardBackgroundColor:#192734;
-	--listBackgroundColor:#192734;
-	--footerBackgroundColor:#192734;
-	--color-calendar-graph-day-bg: #15202b;
-	--calendarTextColor:#e4e4e4;
-	--navLinkColor:#c6c6c6;
-	--navLinkHoverColor:rgb(255, 255, 255);
-	--navbarIconColor:#fff;
+    --navbarBackgroundColor: #083256;
+    --bodyColor: #09233c;
+    --headerBackgroundColor: #083256;
+    --mainText: #e4e4e4;
+    --secondaryText: #c2c2c2;
+    --topBarBacgroundColor: #778492;
+    --cardBackgroundColor: #083256;
+    --listBackgroundColor: #083256;
+    --footerBackgroundColor: #083256;
+    --color-calendar-graph-day-bg: #09233c;
+    --calendarTextColor: #e4e4e4;
+    --navLinkColor: #c6c6c6;
+    --navLinkHoverColor: rgb(255, 255, 255);
+    --navbarIconColor: #fff;
 }
 /*End dark theme*/
 
