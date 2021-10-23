@@ -183,3 +183,37 @@ p, li, span, label, input, textarea, small{
 	background-color:var(--footerBackgroundColor);
 }
 /*End footer style*/
+#button {
+	display: inline-block;
+	background-color: #43cfff;
+	width: 50px;
+	height: 50px;
+	text-align: center;
+	border-radius: 4px;
+	position: fixed;
+	bottom: 30px;
+	right: 30px;
+	transition: background-color .3s, 
+	  opacity .5s, visibility .5s;
+	opacity: 0;
+	visibility: hidden;
+	z-index: 1000;
+  }
+  #button::after {
+	font-weight: normal;
+	font-style: normal;
+	font-size: 2em;
+	line-height: 50px;
+	color: #fff;
+  }
+  #button:hover {
+	cursor: pointer;
+	background-color: rgb(42, 142, 175);
+  }
+  #button:active {
+	background-color: rgb(42, 142, 175);
+  }
+  #button.show {
+	opacity: 1;
+	visibility: visible;
+  }
