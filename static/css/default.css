@@ -12,6 +12,7 @@
 	--navLinkColor:gray;
 	--navLinkHoverColor:rgb(0, 0, 0);
 	--navbarIconColor:#4b5156;
+	--modalBackgroundColor:#fff;
 }
 /*End light theme*/
 
@@ -31,6 +32,7 @@
     --navLinkColor: #c6c6c6;
     --navLinkHoverColor: rgb(255, 255, 255);
     --navbarIconColor: #fff;
+	--modalBackgroundColor:#161b22;
 }
 /*End dark theme*/
 
@@ -85,7 +87,6 @@ p, li, span, label, input, textarea, small{
     transition: all .5s ease;
 	outline: none !important;
 }
-
 .dark-mode-toggle{
 	background: #007bff;
 	border: 2px solid #15202b;
@@ -93,6 +94,17 @@ p, li, span, label, input, textarea, small{
     border-right-width: 2px;
     border-left-width: 25px;
 }
+
+.width-25{
+	width: 25px;
+}
+.modal-dialog-x {
+    max-width: 800px !important;
+}
+.modal-bg{
+	background-color: var(--modalBackgroundColor);
+}
+
 /*End navbar style*/
 
 /*Start head section style*/
@@ -174,16 +186,6 @@ p, li, span, label, input, textarea, small{
 }
 /*End list style*/
 
-/*Start footer style*/
-.footer{
-	margin-top:65px;
-}
-.mainFooterContent{
-	padding:50px;
-	background-color:var(--footerBackgroundColor);
-}
-/*End footer style*/
-
 /*Start scroll top button style*/
 #button {
 	display: inline-block;
@@ -219,8 +221,18 @@ p, li, span, label, input, textarea, small{
 	opacity: 1;
 	visibility: visible;
   }
-  /*End scroll top button style*/
+  
+/*End scroll top button style*/
 
-.width-25{
-	width: 25px;
+/*Start footer style*/
+.footer{
+	margin-top:65px;
 }
+.mainFooterContent{
+	padding:50px;
+	background-color:var(--footerBackgroundColor);
+}
+/*End footer style*/
+
+
+

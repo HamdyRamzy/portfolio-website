@@ -31,23 +31,25 @@
                     <li class="nav-item"><a class="nav-link" href="/blog">Blog</a></li>
                     <li class="nav-item"><a class="nav-link" href="/projects">Projects</a></li>
                     <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
-
-                    
-                    
-                    
                 </ul>
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link ml-auto" href="#"><i class="fas fa-search width-25"></i></a></li>
+                    <li class="nav-item"><a  type="button" data-toggle="modal" data-target="#searchBar"  class="nav-link ml-auto"><i class="fas fa-search width-25"></i></a></li>
                     <li class="nav-item"><button id="dark-mode-toggle" class="theme-button ml-auto"></button></li>
+                    <script src="../static/js/dark-mode.js"></script>
                 </ul>
         </div>
     </nav>
     <!-- End navbar -->
-    <script src="../static/js/dark-mode.js"></script>
+    
+    <!-- Start SearchBar Modal -->
+    {% include 'includes/search_modal.html' %}
+    <!-- End SearchBar Modal -->
+    
+    <!-- Start scroll top button -->
     <a id="button"><i class="fas fa-chevron-up" style="margin-top: 11px; font-size: 29px; color:white"></i></a>
+    <!-- End scroll top button -->
 
     {% block body %}
-
     <section class="container mainSection">
         <!-- Start headr -->
         <div class="HeadSection">
@@ -216,7 +218,7 @@
     <script src="../static/js/jquery-3.6.0.min.js"></script>
     <script src="../static/js/popper.min.js"></script>
     <script src="../static/js/bootstrap.min.js"></script>
-    <script src="../static/js/top-button.js"></script>
+    <script src="../static/js/top-button.js"></script>   
     <!-- End js files -->
 
 </body> 
