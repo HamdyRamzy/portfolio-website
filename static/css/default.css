@@ -17,16 +17,16 @@
 
 /*Start dark theme*/
 .darkmode {
-    --navbarBackgroundColor: #083256;
-    --bodyColor: #09233c;
-    --headerBackgroundColor: #083256;
+    --navbarBackgroundColor: #161b22;
+    --bodyColor: #0d1117;
+    --headerBackgroundColor: #161b22;
     --mainText: #e4e4e4;
     --secondaryText: #c2c2c2;
     --topBarBacgroundColor: #778492;
-    --cardBackgroundColor: #083256;
-    --listBackgroundColor: #083256;
-    --footerBackgroundColor: #083256;
-    --color-calendar-graph-day-bg: #09233c;
+    --cardBackgroundColor: #161b22;
+    --listBackgroundColor: #161b22;
+    --footerBackgroundColor: #161b22;
+    --color-calendar-graph-day-bg: #0d1117;
     --calendarTextColor: #e4e4e4;
     --navLinkColor: #c6c6c6;
     --navLinkHoverColor: rgb(255, 255, 255);
@@ -183,6 +183,8 @@ p, li, span, label, input, textarea, small{
 	background-color:var(--footerBackgroundColor);
 }
 /*End footer style*/
+
+/*Start scroll top button style*/
 #button {
 	display: inline-block;
 	background-color: #43cfff;
@@ -217,3 +219,4 @@ p, li, span, label, input, textarea, small{
 	opacity: 1;
 	visibility: visible;
   }
+  /*End scroll top button style*/
