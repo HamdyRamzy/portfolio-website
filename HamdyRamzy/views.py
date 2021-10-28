@@ -4,18 +4,18 @@ from django.shortcuts import render
 #Render base page
 def base(request):
     #Base logic
-    return render(request, 'base.html')
+    return render(request, 'base.html',{'home_page': 'active'})
 
 def projects(request):
     #Projects page logic
-    return render(request, 'projects.html')    
+    return render(request, 'projects.html', {'projects_page': 'active'})    
 
     
 def blog(request):
     #Blog page logic
-    return render(request, 'blog.html')    
+    return render(request, 'blog.html', {'blog_page': 'active'})    
 
 
 def contact(request):
     #Contact page logic
-    return render(request, 'contact.html')  
+    return render(request, 'contact.html', {'contact_page': 'active'})  

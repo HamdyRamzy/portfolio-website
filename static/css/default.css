@@ -13,6 +13,7 @@
 	--navLinkHoverColor:rgb(0, 0, 0);
 	--navbarIconColor:#4b5156;
 	--modalBackgroundColor:#fff;
+	--aciveNavLinkColor:#000;
 }
 /*End light theme*/
 
@@ -33,6 +34,7 @@
     --navLinkHoverColor: rgb(255, 255, 255);
     --navbarIconColor: #fff;
 	--modalBackgroundColor:#161b22;
+	--aciveNavLinkColor:#fff;
 }
 /*End dark theme*/
 
@@ -69,7 +71,11 @@ p, li, span, label, input, textarea, small{
 	color:var(--navLinkColor);
 }
 .navbar-light .navbar-nav .nav-link:hover{
-	color:var(---navLinkHoverColor);
+	color:var(--navLinkHoverColor);
+}
+.navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link {
+    color: var(--aciveNavLinkColor);
+	text-decoration: underline solid 2px;
 }
 .nav-icon{
 	color: var(--navbarIconColor);
@@ -233,6 +239,4 @@ p, li, span, label, input, textarea, small{
 	background-color:var(--footerBackgroundColor);
 }
 /*End footer style*/
-
-
 
