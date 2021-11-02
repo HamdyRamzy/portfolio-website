@@ -8,12 +8,13 @@
 	--topBarBacgroundColor:#778492;
 	--cardBackgroundColor:#fff;
 	--listBackgroundColor:#fff;
-	--footerBackgroundColor:#e0e0e0;
+	--footerBackgroundColor:#252525;
 	--navLinkColor:gray;
 	--navLinkHoverColor:rgb(0, 0, 0);
 	--navbarIconColor:#4b5156;
 	--modalBackgroundColor:#fff;
 	--aciveNavLinkColor:#000;
+	--footerColor:#dcdcdc;
 }
 /*End light theme*/
 
@@ -35,6 +36,7 @@
     --navbarIconColor: #fff;
 	--modalBackgroundColor:#161b22;
 	--aciveNavLinkColor:#fff;
+	--footerColor:#dcdcdc;
 }
 /*End dark theme*/
 
@@ -230,11 +232,56 @@ p, li, span, label, input, textarea, small{
 
 /*Start footer style*/
 .footer{
-	margin-top:65px;
+	margin-top:100px;
 }
 .mainFooterContent{
-	padding:50px;
+	padding:70px;
 	background-color:var(--footerBackgroundColor);
 }
-/*End footer style*/
 
+.social a {
+	width: 25px;
+	height: 30px;
+	display: inline-block;
+	border-radius: 50%;
+	text-align: center;
+  }
+.footer-color{
+	color: var(--footerColor);
+}
+
+/*End footer style*/
+.search-btn{
+	margin-left: 6px;
+	background: white;
+	border: 1px
+	solid #d3d3d3;
+}
+.search-btn:hover{
+	margin-left: 6px;
+	background: white;
+	border: 1px
+	solid #000000;
+}
+.search-btn:active{
+	background: #ececec;
+}
+.search-btn-icon{
+	color:#000;
+}
+.background-img{
+	height: 350px;
+    border-radius: 10px;
+    background-size: cover !important;
+    background-position: 50% 50% !important;
+	cursor: pointer;
+}
+.model-border{
+	border-bottom:none;
+}
+.form-group input[type=text]:active {
+  border: #000;
+}
+.card-shadow:hover{
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}

@@ -22,23 +22,26 @@
 
     <!-- Start navbar -->
     <nav class="navbar navbar-expand-md navbar-light bg-light">
-        <a class="navbar-brand mt-2 brand-logo" href="/"><h4>HAMDY</h4></a>
-        <button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbar" data-toggle="collapse" type="button">
-            <span class="navbar-toggler-icon nav-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbar">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item {{home_page}}"><a class="nav-link" href="/">Home</a></li>
-                    <li class="nav-item {{blog_page}}"><a class="nav-link" href="/blog">Blog</a></li>
-                    <li class="nav-item {{projects_page}}"><a class="nav-link" href="/projects">Projects</a></li>
-                    <li class="nav-item {{contact_page}}"><a class="nav-link" href="/contact">Contact</a></li>
-                </ul>
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a  type="button" data-toggle="modal" data-target="#searchBar"  class="nav-link ml-auto"><i class="fas fa-search width-25"></i></a></li>
-                    <li class="nav-item"><button id="dark-mode-toggle" class="theme-button ml-auto"></button></li>
-                    <script src="../static/js/dark-mode.js"></script>
-                </ul>
+        <div class="container">
+            <a class="navbar-brand mt-2 brand-logo" href="/"><h4>HAMDY</h4></a>
+            <button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbar" data-toggle="collapse" type="button">
+                <span class="navbar-toggler-icon nav-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item {{home_page}}"><a class="nav-link" href="/">Home</a></li>
+                        <li class="nav-item {{blog_page}}"><a class="nav-link" href="/blog">Blog</a></li>
+                        <li class="nav-item {{projects_page}}"><a class="nav-link" href="/projects">Projects</a></li>
+                        <li class="nav-item {{contact_page}}"><a class="nav-link" href="/contact">Contact</a></li>
+                    </ul>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a  type="button" data-toggle="modal" data-target="#searchBar"  class="nav-link ml-auto"><i class="fas fa-search width-25"></i></a></li>
+                        <li class="nav-item"><button id="dark-mode-toggle" class="theme-button ml-auto"></button></li>
+                        <script src="../static/js/dark-mode.js"></script>
+                    </ul>
+            </div>
         </div>
+
     </nav>
     <!-- End navbar -->
     
@@ -49,9 +52,9 @@
     <!-- Start scroll top button -->
     <a id="button" class="shadow hvr-bob"><i class="fas fa-chevron-up" style="margin-top: 16px; font-size: 16px; color:#252525"></i></a>
     <!-- End scroll top button -->
-
+<div class="container">
     {% block body %}
-    <section class="container mainSection">
+    <section class="mainSection">
         <!-- Start headr -->
         <div class="HeadSection">
             <div class="row">
@@ -203,16 +206,30 @@
             </div>
         </div>
     </section>
-   
+ 
     <script src="../static/js/githun-calender.min.js"></script>
     <script src="../static/js/github-api.js"></script>
+</body>   
     {% endblock %}
+</div>      
     <!-- End Body -->
 
     <!-- Start Footer -->
     <footer class="footer">
-        <div class="mainFooterContent text-center">        
-            <small class="copyright">© 2020–2021 Hamdy Ramzy</small>
+        <div class="mainFooterContent row justify-content-between ">
+            <div class="col-lg-4">
+                <a href="/" class="text-decoration-none"><h4 class="footer-color logo-hvr">HAMDY</h4></a>  
+                <small class="footer-color">Subscription and Membership Management Software</small>
+            </div>  
+            <div class="col-lg-4">
+                <div class="social">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+                <small class="copyright footer-color">© 2020–2021 Hamdy Ramzy</small>
+            </div>     
         </div>
     </footer>
     <!-- End Footer -->
@@ -224,5 +241,5 @@
     <script src="../static/js/top-button.js"></script>   
     <!-- End js files -->
 
-</body> 
+
 </html>
