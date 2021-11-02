@@ -15,6 +15,7 @@
 	--modalBackgroundColor:#fff;
 	--aciveNavLinkColor:#000;
 	--footerColor:#dcdcdc;
+	--hrColor:#cccccc;
 }
 /*End light theme*/
 
@@ -37,6 +38,7 @@
 	--modalBackgroundColor:#161b22;
 	--aciveNavLinkColor:#fff;
 	--footerColor:#dcdcdc;
+	--hrColor:#161b22;
 }
 /*End dark theme*/
 
@@ -284,4 +286,7 @@ p, li, span, label, input, textarea, small{
 }
 .card-shadow:hover{
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+hr{
+	border-top: 1px solid var(--hrColor);
 }
