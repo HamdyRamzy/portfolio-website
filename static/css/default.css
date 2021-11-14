@@ -1,7 +1,7 @@
 /*Start light theme*/
 :root{
 	--navbarBackgroundColor:#fff;
-	--bodyColor:#f3f2ef;
+	--bodyColor:#f3f2ef2e;
 	--headerBackgroundColor:#fff;
 	--mainText:#353535;
 	--secondaryText:#4b5156;
@@ -16,6 +16,10 @@
 	--aciveNavLinkColor:#000;
 	--footerColor:#dcdcdc;
 	--hrColor:#cccccc;
+	--headIconColor: #353535;
+	--headIconBackgroundColor:#fff;
+	--headIconBorderColor:	#353535;
+	;
 }
 /*End light theme*/
 
@@ -39,6 +43,9 @@
 	--aciveNavLinkColor:#fff;
 	--footerColor:#dcdcdc;
 	--hrColor:#161b22;
+	--headIconColor:#e4e4e4;
+	--headIconBackgroundColor:#161b22;
+	--headIconBorderColor:#fff;
 }
 /*End dark theme*/
 
@@ -81,7 +88,7 @@ p, li, span, label, input, textarea, small{
 }
 .navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link {
     color: var(--aciveNavLinkColor);
-	text-decoration: underline solid 2px;
+	border-bottom: 2px solid;
 }
 .nav-icon{
 	color: var(--navbarIconColor);
@@ -108,6 +115,7 @@ p, li, span, label, input, textarea, small{
 }
 
 .width-25{
+	font-size: larger;
 	width: 25px;
 }
 .modal-dialog-x {
@@ -115,6 +123,23 @@ p, li, span, label, input, textarea, small{
 }
 .modal-bg{
 	background-color: var(--modalBackgroundColor);
+}
+.search-btn{
+	margin-left: 6px;
+	background: white;
+	border: 1px
+	solid #d3d3d3;
+}
+.search-btn:hover{
+	margin-left: 6px;
+	background: white;
+	border: 1px solid #000000;
+}
+.search-btn:active{
+	background: #ececec;
+}
+.search-btn-icon{
+	color:#767676;
 }
 
 /*End navbar style*/
@@ -137,17 +162,30 @@ p, li, span, label, input, textarea, small{
 .theme-btn{
 	margin-top: 60px;
 }
-.infoContainer .info .social a {
-	width: 44px;
-	height: 44px;
+.social {
+	width: 40px;
+	height: 40px;
 	display: inline-block;
-	border-radius: 50%;
 	text-align: center;
-  }
-.infoContainer .info .social a i{
-	font-size: xx-large;
+	border-radius: 50%;
+	color: var(--headIconColor);
+	border:1px solid var(--headIconBorderColor);
+}
 
+  .social:hover {
+	background-color: var(--headIconBorderColor);
+	color: #fff;
+	
+}
+
+.head-icon{
+	font-size: 21px;
+	margin-top: 9px;
   }
+
+.logo-hvr:hover{
+	color:#fff;
+}  
 
 /*End head section style*/
   
@@ -187,6 +225,21 @@ p, li, span, label, input, textarea, small{
 .experienceDescription{
 	margin-left:20px;
 	max-width:300px;
+}
+
+.background-img{
+	height: 350px;
+    border-radius: 10px;
+    background-size: cover !important;
+    background-position: 50% 50% !important;
+	cursor: pointer;
+}
+.card-shadow:hover{
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 20%), 0 6px 20px 0 rgba(0, 0, 0, 40%);
+
+}
+.big-size{
+    font-size: 2.5rem;
 }
 /*End card style*/
 
@@ -254,51 +307,45 @@ p, li, span, label, input, textarea, small{
 	color: var(--footerColor);
 }
 
-/*End footer style*/
-.search-btn{
-	margin-left: 6px;
-	background: white;
-	border: 1px
-	solid #d3d3d3;
-}
-.search-btn:hover{
-	margin-left: 6px;
-	background: white;
-	border: 1px
-	solid #000000;
-}
-.search-btn:active{
-	background: #ececec;
-}
-.search-btn-icon{
-	color:#000;
-}
-.background-img{
-	height: 350px;
-    border-radius: 10px;
-    background-size: cover !important;
-    background-position: 50% 50% !important;
-	cursor: pointer;
-}
-.model-border{
-	border-bottom:none;
-}
-.form-group input[type=text]:active {
-  border: #000;
-}
-.card-shadow:hover{
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-hr{
-	border-top: 1px solid var(--hrColor);
-}
-.logo-hvr:hover{
-	color:#fff;
-}
 .footer-icon{
-	font-size: larger;
+	font-size: 21px;
+	padding: 4px;
 }
 .footer-icon:hover{
 	color:#fff;
 	
+}
+
+/*End footer style*/
+
+/*Start contact style*/
+.submit-button{
+	background-color: #fff;
+    border: 1px solid #767676;
+    color: #767676;
+}
+.submit-button:hover{
+	background-color: #fff;
+    border: 1px solid #353535;
+    color: #353535;
+}
+.submit-button:active{
+	background-color: #ececec;
+}
+/*End Start contact style*/
+
+
+.model-border{
+	border-bottom:none;
+}
+
+hr{
+	border-top: 1px solid var(--hrColor);
+}
+.background-header-img{
+	min-height: 350px;
+    border-radius: 10px;
+    background-size: cover !important;
+    background-position: 50% 50% !important;
+	cursor: pointer;
 }

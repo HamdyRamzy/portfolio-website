@@ -16,10 +16,10 @@
     <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../static/css/github-calendar-responsive.css">
     <link rel="stylesheet" type="text/css" href="../static/css/default.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
 <body>
-
     <!-- Start navbar -->
     <nav class="navbar navbar-expand-md navbar-light bg-light">
         <div class="container">
@@ -36,9 +36,10 @@
                     </ul>
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item"><a  type="button" data-toggle="modal" data-target="#searchBar"  class="nav-link ml-auto"><i class="fas fa-search width-25"></i></a></li>
-                        <li class="nav-item"><button id="dark-mode-toggle" class="theme-button ml-auto"></button></li>
-                        <script src="../static/js/dark-mode.js"></script>
+                        <li class="nav-item"><button title="d" id="dark-mode-toggle" class="theme-button ml-auto"></button></li>
+                        
                     </ul>
+                    <script src="../static/js/dark.js"></script>
             </div>
         </div>
 
@@ -65,11 +66,11 @@
                     <div class="info">
                         <h2>Hamdy Ramzy</h2>
                         <p>Software developer</p>
-                        <div class="social">
-                            <a href="#"><i class="fab fa-facebook"></i></a>
-                            <a href="#"><i class="fab fa-linkedin"></i></a>
-                            <a href="#"><i class="fab fa-github"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
+                        <div class="social-container">
+                            <a class="social" href="#"><i class="fab fa-facebook-f head-icon"></i></a>
+                            <a class="social" href="#"><i class="fab fa-linkedin-in head-icon"></i></a>
+                            <a class="social" href="#"><i class="fab fa-github head-icon"></i></a>
+                            <a class="social" href="#"><i class="fab fa-twitter head-icon"></i></a>
                         </div>
                     </div>
                 </div>
@@ -222,7 +223,7 @@
                 <small class="footer-color">Subscription and Membership Management Software</small>
             </div>  
             <div class="col-lg-4 col-md-4 p-3">
-                <div class="social">
+                <div class="footer-social">
                     <a href="#"><i class="fab fa-facebook footer-color footer-icon"></i></a>
                     <a href="#"><i class="fab fa-linkedin footer-color footer-icon"></i></a>
                     <a href="#"><i class="fab fa-github footer-color footer-icon"></i></a>
@@ -239,6 +240,11 @@
     <script src="../static/js/popper.min.js"></script>
     <script src="../static/js/bootstrap.min.js"></script>
     <script src="../static/js/top-button.js"></script>   
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    
     <!-- End js files -->
 
 

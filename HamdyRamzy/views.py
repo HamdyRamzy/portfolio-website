@@ -19,3 +19,9 @@ def blog(request):
 def contact(request):
     #Contact page logic
     return render(request, 'contact.html', {'contact_page': 'active'})  
+
+def project_detail(request):
+    #Contact page logic
+    return render(request, 'project_detail.html')  
+
+    

@@ -5,9 +5,31 @@
 
 <body>
   {% block body %}
-<div class="" style="padding: 200px; text-align:center;">
-  <h1>Contact page</h1>
-</div>
+    <div class="mt-5">
+      <div class="col-lg-6">
+          <h2 class="text-center">Contact me</h2>
+        <div class="card">
+          <div class="card-body">
+            <form>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Username</label>
+                <input type="email" class="form-control shadow-none" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter username">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control shadow-none" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlTextarea1">Description</label>
+                <textarea class="form-control shadow-none" id="exampleFormControlTextarea1" rows="3"></textarea>
+              </div>
+              <button type="submit" class="btn w-100 submit-button shadow-none">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+    </div>
   {% endblock %}  
 
 
