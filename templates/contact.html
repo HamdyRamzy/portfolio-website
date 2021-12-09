@@ -7,21 +7,20 @@
   {% block body %}
     <div class="mt-5">
       <div class="col-lg-6">
-          <h2 class="text-center">Contact me</h2>
-        <div class="card">
+          <h2 class="text-center">Contact me</h2> 
+        <div class="card  mt-3">
           <div class="card-body">
             <form>
               <div class="form-group">
-                <label for="exampleInputEmail1">Username</label>
-                <input type="email" class="form-control shadow-none" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter username">
+                <input type="text" class="form-control shadow-none" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter username">
               </div>
               <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
                 <input type="email" class="form-control shadow-none" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                <small class="text-muted">Please, enter the email address where you wish to receive our answer.</small>
               </div>
               <div class="form-group">
-                <label for="exampleFormControlTextarea1">Description</label>
-                <textarea class="form-control shadow-none" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <textarea class="form-control shadow-none" placeholder="Write me a message" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <small class="text-muted">Please enter the details of your request, once your request is submitted, i'll respond as soon as possible.</small>
               </div>
               <button type="submit" class="btn w-100 submit-button shadow-none">Submit</button>
             </form>

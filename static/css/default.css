@@ -17,14 +17,21 @@
 	--footerColor:#dcdcdc;
 	--hrColor:#cccccc;
 	--headIconColor: #353535;
+	--headIconHoverColor: #fff;
 	--headIconBackgroundColor:#fff;
 	--headIconBorderColor:	#353535;
-	;
+	--formBorderColor: rgba(0,0,0,.125);
+	--formBackgroundColor: #fff;
+	--ButtonBackgroundColor:white;
+	--ButtonBorderColor:#d3d3d3;
+	--searchIconColor:#767676;
+	--buttonTextColor: #767676;
+	--shdowColor:rgba(0, 0, 0, 40%);
 }
 /*End light theme*/
 
 /*Start dark theme*/
-.darkmode {
+.dark {
     --navbarBackgroundColor: #161b22;
     --bodyColor: #0d1117;
     --headerBackgroundColor: #161b22;
@@ -44,8 +51,16 @@
 	--footerColor:#dcdcdc;
 	--hrColor:#161b22;
 	--headIconColor:#e4e4e4;
+	--headIconHoverColor: #161b22;
 	--headIconBackgroundColor:#161b22;
-	--headIconBorderColor:#fff;
+	--headIconBorderColor:#e4e4e4;
+	--formBorderColor: #4b688d;
+	--formBackgroundColor: #1f2936;
+	--ButtonBackgroundColor:#4b688d;
+	--ButtonBorderColor:#4b688d;
+	--searchIconColor:#e4e4e4;
+	--buttonTextColor: #fff;
+	--shdowColor:rgb(31 64 104 / 60%);
 }
 /*End dark theme*/
 
@@ -58,9 +73,7 @@ html, body{
 	scroll-behavior: smooth;
 	background-color: var(--bodyColor);
 }
-body *{
-	transition: 0.3s;
-}
+
 h1, h2, h3, h4, h5, h6, strong{
 	color: var(--mainText);
 	font-family: 'Russo One', sans-serif;
@@ -88,7 +101,15 @@ p, li, span, label, input, textarea, small{
 }
 .navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link {
     color: var(--aciveNavLinkColor);
-	border-bottom: 2px solid;
+}
+@media (min-width: 768px){
+.navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link {
+	border-bottom: 2px solid var(--aciveNavLinkColor);
+}
+}
+
+.navbar-light .navbar-toggler{
+	border-color: var(--navLinkColor);
 }
 .nav-icon{
 	color: var(--navbarIconColor);
@@ -106,12 +127,8 @@ p, li, span, label, input, textarea, small{
     transition: all .5s ease;
 	outline: none !important;
 }
-.dark-mode-toggle{
-	background: #3f556c;
-	border: 2px solid #15202b;
-	outline: none !important;
-    border-right-width: 2px;
-    border-left-width: 25px;
+.dark-button:hover{
+	color:var(--navLinkHoverColor);
 }
 
 .width-25{
@@ -125,21 +142,14 @@ p, li, span, label, input, textarea, small{
 	background-color: var(--modalBackgroundColor);
 }
 .search-btn{
-	margin-left: 6px;
-	background: white;
+	background: var(--ButtonBackgroundColor);
 	border: 1px
-	solid #d3d3d3;
-}
-.search-btn:hover{
-	margin-left: 6px;
-	background: white;
-	border: 1px solid #000000;
-}
-.search-btn:active{
-	background: #ececec;
+	solid var(--ButtonBorderColor);
+	padding: 1em;
+    height: auto;
 }
 .search-btn-icon{
-	color:#767676;
+	color:var(--searchIconColor);
 }
 
 /*End navbar style*/
@@ -165,6 +175,7 @@ p, li, span, label, input, textarea, small{
 .social {
 	width: 40px;
 	height: 40px;
+	margin: 0px 2px;
 	display: inline-block;
 	text-align: center;
 	border-radius: 50%;
@@ -174,7 +185,7 @@ p, li, span, label, input, textarea, small{
 
   .social:hover {
 	background-color: var(--headIconBorderColor);
-	color: #fff;
+	color: var(--headIconHoverColor);
 	
 }
 
@@ -224,7 +235,7 @@ p, li, span, label, input, textarea, small{
 }
 .experienceDescription{
 	margin-left:20px;
-	max-width:300px;
+	max-width:220px;
 }
 
 .background-img{
@@ -235,9 +246,10 @@ p, li, span, label, input, textarea, small{
 	cursor: pointer;
 }
 .card-shadow:hover{
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 20%), 0 6px 20px 0 rgba(0, 0, 0, 40%);
-
+	box-shadow: 0 4px 8px 0 var(--shdowColor), 0 6px 20px 0 var(--shdowColor);	
 }
+
+
 .big-size{
     font-size: 2.5rem;
 }
@@ -320,17 +332,15 @@ p, li, span, label, input, textarea, small{
 
 /*Start contact style*/
 .submit-button{
-	background-color: #fff;
-    border: 1px solid #767676;
-    color: #767676;
+	background-color: var(--ButtonBackgroundColor);
+    border: 1px solid var(--ButtonBorderColor);
+    color: var(--buttonTextColor);
+	padding: 1em;
+	height: auto;
+	font-weight: 700;
 }
 .submit-button:hover{
-	background-color: #fff;
-    border: 1px solid #353535;
-    color: #353535;
-}
-.submit-button:active{
-	background-color: #ececec;
+	color: var(--buttonTextColor);
 }
 /*End Start contact style*/
 
@@ -348,4 +358,40 @@ hr{
     background-size: cover !important;
     background-position: 50% 50% !important;
 	cursor: pointer;
+}
+.form-control{
+	padding: 1em;
+	height: auto;
+	background-color: var(--formBackgroundColor);
+    border-color:  var(--formBorderColor);
+	color: var(--secondaryText);
+}
+.form-control:focus{
+	background-color: var(--formBackgroundColor);
+    border-color:  var(--formBorderColor);
+	color: var(--secondaryText);
+}
+.form-control:active{
+	background-color: var(--formBackgroundColor);
+    border-color:  var(--formBorderColor);
+	color: var(--secondaryText);
+}
+#overlay{
+	position:fixed;
+	z-index:99999;
+	top:0;
+	left:0;
+	bottom:0;
+	right:0;
+	background:rgba(0,0,0,0.9);
+	transition: 1s 0.4s;
+  }
+  .fass {
+	cursor: pointer;
+	transform: rotate(-25deg);
+	color: var(--navLinkColor);
+}
+
+.nav-icon-p{
+	padding: 0px 4px;
 }
