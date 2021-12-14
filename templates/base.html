@@ -23,7 +23,7 @@
 
 <body>
     <!-- Start navbar -->
-    <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <nav class="navbar navbar-expand-md navbar-light bg-light fixed-nav" id="navbarfixed">
         <div class="container">
             <a class="navbar-brand mt-2 brand-logo" href="/"><h4>HAMDY</h4></a>
             <button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbar" data-toggle="collapse" type="button">
@@ -50,19 +50,22 @@
     
     <!-- Start SearchBar Modal -->
     {% include 'includes/search_modal.html' %}
+    {% include 'includes/profile_modal.html' %}
     <!-- End SearchBar Modal -->
     
     <!-- Start scroll top button -->
     <a id="button" class="shadow hvr-bob"><i class="fas fa-chevron-up" style="margin-top: 16px; font-size: 16px; color:#252525"></i></a>
     <!-- End scroll top button -->
-<div class="container">
+<div class="container margin-container">
     {% block body %}
     <section class="mainSection">
         <!-- Start headr -->
         <div class="HeadSection">
             <div class="row">
                 <div class="col-lg-3 col-md-4 col-sm-12 photo ">
-                    <img src="../static/images/favicon.png" alt="HamdyRamzy" height="200" width="200">
+                    <a type="button" class="" data-toggle="modal" data-target="#pictureModal">
+                        <img src="../static/images/favicon.png" alt="HamdyRamzy" height="200" width="200">
+                    </a>
                 </div>
                 <div class="col-lg-4 col-md-5 col-sm-12 infoContainer">
                     <div class="info">
@@ -98,39 +101,52 @@
                         <div class="card-body">
                             <h5 class="h5-card-head">Latest Projects</h5>
                             <div class="row postsContainer">
-                                <div class="col-lg-4 col-md-4 col-sm-12 postsImageContainer">
-                                    <img src="../static/images/one badge.png"  class="postsImage" alt="-">
+                                <div class="col-lg-6 col-md-6 col-sm-12">
+                                    <div class="card background-header-img hvr-bob card-shadow" style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7) ), url(../static/images/unsplash4.jpg);">
+                                        <div class="card-body text-center">
+                                            <h4  class="card-head" style="color: #fff; margin-top:100px;">How can i created app by flutter and django?</h4>
+                                            <p style="color: #fff;">In this articlei will explain howcanicreated app by django</p>
+                                            <small style="color: #fff;">02.24.21</small>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="col-lg-8 col-md-8  col-sm-12 postsDescription">
-                                    <h6>Latest Projects</h6>
-                                    <p>Write a brief intro about yourself. It's a good idea to include your personal interests and hobbies as well.  Aenean massa.</p>
-                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-12">
+                                    <div class="card background-header-img hvr-bob card-shadow" style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7) ), url(../static/images/unsplash3.jpg);">
+                                        <div class="card-body text-center">
+                                            <h4 class="card-head" style="color: #fff; margin-top:100px;">How can i created app by flutter and django?</h4>
+                                            <p style="color: #fff;">In this articlei will explain howcanicreated app by django</p>
+                                            <small style="color: #fff;">02.24.21</small>
+                                        </div>
+                                    </div>
+                                </div>  
                             </div>
+                            <a href="/projects" class="see-more">Click to see more project posts<i class="bi bi-arrow-right-short"></i></a>
                         </div>
                     </div>
                     <div class="card">
                         <div class="card-body">
                             <h5 class="h5-card-head">Latest Blog Posts</h5>
                             <div class="row postsContainer">
-                                <div class="col-lg-4 col-md-4 col-sm-12 postsImageContainer">
-                                    <img src="../static/images/one badge.png" class="postsImage" alt="-">
+                                <div class="col-lg-6 col-md-6 col-sm-12">
+                                    <div class="card background-header-img hvr-bob card-shadow" style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7) ), url(../static/images/unsplash5.jpg);">
+                                        <div class="card-body text-center">
+                                            <h4 class="card-head" style="color: #fff; margin-top:100px;">How can i created app by flutter and django?</h4>
+                                            <p style="color: #fff;">In this articlei will explain howcanicreated app by django</p>
+                                            <small style="color: #fff;">02.24.21</small>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="col-lg-8 col-md-8 col-sm-12 postsDescription">
-                                    <h6>Latest Blog Posts</h6>
-                                    <p>Write a brief intro about yourself. It's a good idea to include your personal interests and hobbies as well.  Aenean massa.</p>
-
+                                <div class="col-lg-6 col-md-6 col-sm-12">
+                                    <div class="card background-header-img hvr-bob card-shadow" style="background: linear-gradient( rgba(119, 86, 86, 0.5), rgba(0, 0, 0, 0.7) ), url(../static/images/unsplash6.jpg);">
+                                        <div class="card-body text-center">
+                                            <h4  class="card-head" style="color: #fff; margin-top:100px;">How can i created app by flutter and django?</h4>
+                                            <p style="color: #fff;">In this articlei will explain howcanicreated app by django</p>
+                                            <small style="color: #fff;">02.24.21</small>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="row postsContainer">
-                                <div class="col-lg-4 col-md-4 col-sm-12 postsImageContainer">
-                                    <img src="../static/images/one badge.png" class="postsImage" alt="-">
-                                </div>
-                                <div class="col-lg-8 col-md-8 col-sm-12 postsDescription">
-                                    <h6>Latest Blog Posts</h6>
-                                    <p>Write a brief intro about yourself. It's a good idea to include your personal interests and hobbies as well.  Aenean massa.</p>
-
-                                </div>
-                            </div>
+                            <a href="/blog" class="see-more">Click to see more blog posts<i class="bi bi-arrow-right-short"></i></a>
                         </div>
                     </div>
                     <div class="card">
