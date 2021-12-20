@@ -11,7 +11,6 @@
 	<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&family=Russo+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css" integrity="sha384-xxzQGERXS00kBmZW/6qxqJPyxW3UR0BPsL4c8ILaIWXva5kFi7TxkIIaMiKtqV1Q" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-
     <link rel="shortcut icon" type="../static/images/favicon.png" href="../static/images/favicon.png">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" type="text/css" href="../static/css/hover-min.css">
@@ -27,7 +26,7 @@
         <div class="container">
             <a class="navbar-brand mt-2 brand-logo" href="/"><h4>HAMDY</h4></a>
             <button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbar" data-toggle="collapse" type="button">
-                <span class=""><i style="font-size: 25px;" class="bi bi-list"></i></span>
+                <span class=""><i class="bi bi-list font-size-25"></i></span>
             
             </button>
             <div class="collapse navbar-collapse" id="navbar">
@@ -38,13 +37,12 @@
                         <li class="nav-item {{contact_page}}"><a class="nav-link" href="/contact">Contact</a></li>
                     </ul>
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item"><a  type="button" style="font-size: 18px;" data-toggle="modal" data-target="#searchBar"  class="nav-link ml-auto"><i class="bi bi-search nav-icon-p"></i></a></li>
-                        <li class="nav-item"><i id="icon" style="font-size: 25px;" class="fass bi bi-brightness-low-fill nav-icon-p  dark-button"></i></li>
+                        <li class="nav-item"><a  type="button" data-toggle="modal" data-target="#searchBar"  class="nav-link ml-auto font-size-18"><i class="bi bi-search nav-icon-p"></i></a></li>
+                        <li class="nav-item"><i id="icon" class="fass bi bi-brightness-low-fill nav-icon-p font-size-25 dark-button"></i></li>
                     </ul>
                     <script src="../static/js/dark.js"></script>
             </div>
         </div>
-
     </nav>
     <!-- End navbar -->
     
@@ -54,191 +52,189 @@
     <!-- End SearchBar Modal -->
     
     <!-- Start scroll top button -->
-    <a id="button" class="shadow hvr-bob"><i class="fas fa-chevron-up" style="margin-top: 16px; font-size: 16px; color:#252525"></i></a>
+    <a id="button" class="shadow hvr-bob"><i class="fas fa-chevron-up top-button"></i></a>
     <!-- End scroll top button -->
-<div class="container margin-container">
-    {% block body %}
-    <section class="mainSection">
-        <!-- Start headr -->
-        <div class="HeadSection">
+    <div class="container margin-container">
+        {% block body %}
+        <section class="mainSection">
+            <!-- Start headr -->
+            <div class="HeadSection">
+                <div class="row">
+                    <div class="col-lg-3 col-md-4 col-sm-12 photo ">
+                        <a type="button" class="" data-toggle="modal" data-target="#pictureModal">
+                            <img src="../static/images/favicon.png" alt="HamdyRamzy" height="200" width="200">
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-md-5 col-sm-12 infoContainer">
+                        <div class="info">
+                            <h2>Hamdy Ramzy</h2>
+                            <p>Fullstack web developer</p>
+                            <div class="social-container">
+                                <a class="social" href="#"><i class="fab fa-facebook-f head-icon"></i></a>
+                                <a class="social" href="#"><i class="fab fa-linkedin-in head-icon"></i></a>
+                                <a class="social" href="#"><i class="fab fa-github head-icon"></i></a>
+                                <a class="social" href="#"><i class="fab fa-twitter head-icon"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-12 themesControler">
+                        
+                    </div>
+                </div>
+            </div>
+            <!-- End header -->
+            
+            <!-- Start Body -->
             <div class="row">
-                <div class="col-lg-3 col-md-4 col-sm-12 photo ">
-                    <a type="button" class="" data-toggle="modal" data-target="#pictureModal">
-                        <img src="../static/images/favicon.png" alt="HamdyRamzy" height="200" width="200">
-                    </a>
-                </div>
-                <div class="col-lg-4 col-md-5 col-sm-12 infoContainer">
-                    <div class="info">
-                        <h2>Hamdy Ramzy</h2>
-                        <p>Software developer</p>
-                        <div class="social-container">
-                            <a class="social" href="#"><i class="fab fa-facebook-f head-icon"></i></a>
-                            <a class="social" href="#"><i class="fab fa-linkedin-in head-icon"></i></a>
-                            <a class="social" href="#"><i class="fab fa-github head-icon"></i></a>
-                            <a class="social" href="#"><i class="fab fa-twitter head-icon"></i></a>
+                <div class="col-lg-8 leftSection">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="h5-card-head">About me</h5>
+                                <p>
+                                    I'm a python developer using native python & Django framework, I'm ready to gain more experience as a Django web developer and currently, I'm working with flutter as a mobile applications framework.
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-4 col-sm-12 themesControler">
-                    
-                </div>
-            </div>
-        </div>
-        <!-- End header -->
-        
-        <!-- Start Body -->
-        <div class="row">
-            <div class="col-lg-8 leftSection">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="h5-card-head">About me</h5>
-                            <p>
-                                I'm a python developer using native python & Django framework, I'm ready to gain more experience as a Django web developer and currently, I'm working with flutter as a mobile applications framework.
-                            </p>
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="h5-card-head">Latest Projects</h5>
+                                <div class="row postsContainer">
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <div class="card background-header-img hvr-bob card-shadow" style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7) ), url(../static/images/unsplash4.jpg);">
+                                            <div class="card-body text-center">
+                                                <h4  class="card-head card-h4">How can i created app by flutter and django?</h4>
+                                                <p class="text-white">In this articlei will explain howcanicreated app by django</p>
+                                                <small class="text-white">02.24.21</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <div class="card background-header-img hvr-bob card-shadow" style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7) ), url(../static/images/unsplash3.jpg);">
+                                            <div class="card-body text-center">
+                                                <h4 class="card-head card-h4">How can i created app by flutter and django?</h4>
+                                                <p class="text-white">In this articlei will explain howcanicreated app by django</p>
+                                                <small class="text-white">02.24.21</small>
+                                            </div>
+                                        </div>
+                                    </div>  
+                                </div>
+                                <a href="/projects" class="see-more">Click to see more project posts<i class="bi bi-arrow-right-short"></i></a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="h5-card-head">Latest Projects</h5>
-                            <div class="row postsContainer">
-                                <div class="col-lg-6 col-md-6 col-sm-12">
-                                    <div class="card background-header-img hvr-bob card-shadow" style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7) ), url(../static/images/unsplash4.jpg);">
-                                        <div class="card-body text-center">
-                                            <h4  class="card-head" style="color: #fff; margin-top:100px;">How can i created app by flutter and django?</h4>
-                                            <p style="color: #fff;">In this articlei will explain howcanicreated app by django</p>
-                                            <small style="color: #fff;">02.24.21</small>
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="h5-card-head">Latest Blog Posts</h5>
+                                <div class="row postsContainer">
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <div class="card background-header-img hvr-bob card-shadow" style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7) ), url(../static/images/unsplash5.jpg);">
+                                            <div class="card-body text-center">
+                                                <h4 class="card-head card-h4">How can i created app by flutter and django?</h4>
+                                                <p class="text-white">In this articlei will explain howcanicreated app by django</p>
+                                                <small class="text-white">02.24.21</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <div class="card background-header-img hvr-bob card-shadow" style="background: linear-gradient( rgba(119, 86, 86, 0.5), rgba(0, 0, 0, 0.7) ), url(../static/images/unsplash6.jpg);">
+                                            <div class="card-body text-center">
+                                                <h4  class="card-head card-h4">How can i created app by flutter and django?</h4>
+                                                <p class="text-white">In this articlei will explain howcanicreated app by django</p>
+                                                <small class="text-white">02.24.21</small>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-sm-12">
-                                    <div class="card background-header-img hvr-bob card-shadow" style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7) ), url(../static/images/unsplash3.jpg);">
-                                        <div class="card-body text-center">
-                                            <h4 class="card-head" style="color: #fff; margin-top:100px;">How can i created app by flutter and django?</h4>
-                                            <p style="color: #fff;">In this articlei will explain howcanicreated app by django</p>
-                                            <small style="color: #fff;">02.24.21</small>
-                                        </div>
+                                <a href="/blog" class="see-more">Click to see more blog posts<i class="bi bi-arrow-right-short"></i></a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="h5-card-head ">My GitHub</h5>
+                                <div class="calendar">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="h5-card-head">Work Experience</h5>
+                                <div class="row experienceContainer">
+                                    <div class="experienceImageContainer">
+                                        <img src="../static/images/upworkgreen.png" class="experienceImage" alt="-" height="60" width="60">
                                     </div>
-                                </div>  
+                                    <div class="experienceDescription">
+                                        <h6 class="p-margin">Work Experience</h6>
+                                        <p class="p-margin">upwork.freelancer</p>
+                                        <small>oct 2021 - Present . 1 mon</small>
+                                    </div>
+                                </div> 
+                        
                             </div>
-                            <a href="/projects" class="see-more">Click to see more project posts<i class="bi bi-arrow-right-short"></i></a>
                         </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="h5-card-head">Latest Blog Posts</h5>
-                            <div class="row postsContainer">
-                                <div class="col-lg-6 col-md-6 col-sm-12">
-                                    <div class="card background-header-img hvr-bob card-shadow" style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7) ), url(../static/images/unsplash5.jpg);">
-                                        <div class="card-body text-center">
-                                            <h4 class="card-head" style="color: #fff; margin-top:100px;">How can i created app by flutter and django?</h4>
-                                            <p style="color: #fff;">In this articlei will explain howcanicreated app by django</p>
-                                            <small style="color: #fff;">02.24.21</small>
-                                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="h5-card-head">licenses & certifications</h5>
+                                <div class="row experienceContainer">
+                                    <div class="experienceImageContainer">
+                                        <img src="../static/images/edx.jpg" class="experienceImage" alt="-" height="60" width="60">
+                                    </div>
+                                    <div class="experienceDescription">
+                                        <h6 class="p-margin">CS50x: CS50's Introduction to Computer Science</h6>
+                                        <p class="p-margin">Issue Aug2021 . No Expiration Date</p>
+                                        <small>Credential ID 880e144e8a8a40dda4e15ea03509131c</small>
                                     </div>
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-sm-12">
-                                    <div class="card background-header-img hvr-bob card-shadow" style="background: linear-gradient( rgba(119, 86, 86, 0.5), rgba(0, 0, 0, 0.7) ), url(../static/images/unsplash6.jpg);">
-                                        <div class="card-body text-center">
-                                            <h4  class="card-head" style="color: #fff; margin-top:100px;">How can i created app by flutter and django?</h4>
-                                            <p style="color: #fff;">In this articlei will explain howcanicreated app by django</p>
-                                            <small style="color: #fff;">02.24.21</small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="/blog" class="see-more">Click to see more blog posts<i class="bi bi-arrow-right-short"></i></a>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="h5-card-head ">My GitHub</h5>
-                            <div class="calendar">
-
+                        
                             </div>
                         </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="h5-card-head">Work Experience</h5>
-                            <div class="row experienceContainer">
-                                <div class="experienceImageContainer">
-                                    <img src="../static/images/upworkgreen.png" class="experienceImage" alt="-" height="60" width="60">
-                                </div>
-                                <div class="experienceDescription">
-                                    <h6 class="p-margin">Work Experience</h6>
-                                    <p class="p-margin">upwork.freelancer</p>
-                                    <small>oct 2021 - Present . 1 mon</small>
-                                </div>
-                            </div> 
-                      
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="h5-card-head">licenses & certifications</h5>
-                            <div class="row experienceContainer">
-                                <div class="experienceImageContainer">
-                                    <img src="../static/images/edx.jpg" class="experienceImage" alt="-" height="60" width="60">
-                                </div>
-                                <div class="experienceDescription">
-                                    <h6 class="p-margin">CS50x: CS50's Introduction to Computer Science</h6>
-                                    <p class="p-margin">Issue Aug2021 . No Expiration Date</p>
-                                    <small>Credential ID 880e144e8a8a40dda4e15ea03509131c</small>
-                                </div>
-                            </div>
-                       
-                        </div>
-                    </div>
-            </div>
-            <div class="col-lg-4 rightSection">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="h5-card-head">Contact Info</h5>
-                        <ul class="list-group list-group-flush contactIconContainer">
-                            <li class="list-group-item"><i class="fas fa-phone-alt contactIcon"></i> 01064549359</li>
-                            <li class="list-group-item"><i class="far fa-envelope contactIcon"></i> hamdyramzy34@gmail.com</li>
-                            <li class="list-group-item"><i class="fas fa-birthday-cake contactIcon"></i> 24-Dec-1997</li>
-                        </ul>
-                    </div>
                 </div>
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="h5-card-head">Skills</h5>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Django</li>
-                            <li class="list-group-item">Python</li>
-                            <li class="list-group-item">CSS</li>
-                            <li class="list-group-item">HTML</li>
-                            <li class="list-group-item">Javascript</li>
-                          </ul>
+                <div class="col-lg-4 rightSection">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="h5-card-head">Contact Info</h5>
+                            <ul class="list-group list-group-flush contactIconContainer">
+                                <li class="list-group-item"><i class="fas fa-phone-alt contactIcon"></i> 01064549359</li>
+                                <li class="list-group-item"><i class="far fa-envelope contactIcon"></i> hamdyramzy34@gmail.com</li>
+                                <li class="list-group-item"><i class="fas fa-birthday-cake contactIcon"></i> 24-Dec-1997</li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="h5-card-head">Language</h5>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item"><strong>Arabic</strong>: Native Speaker</li>
-                            <li class="list-group-item"><strong>English</strong>: Professional</li>
-                        </ul>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="h5-card-head">Skills</h5>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Django</li>
+                                <li class="list-group-item">Python</li>
+                                <li class="list-group-item">CSS</li>
+                                <li class="list-group-item">HTML</li>
+                                <li class="list-group-item">Javascript</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="h5-card-head">Language</h5>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item"><strong>Arabic</strong>: Native Speaker</li>
+                                <li class="list-group-item"><strong>English</strong>: Professional</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
- 
+        </section>
+    </div>
     <script src="../static/js/githun-calender.min.js"></script>
     <script src="../static/js/github-api.js"></script>
 </body>   
-    {% endblock %}
+{% endblock %}
 </div>      
     <!-- End Body -->
-
     <!-- Start Footer -->
     <footer class="footer">
         <div class="mainFooterContent row justify-content-between ">
             <div class="col-lg-4 col-md-4 p-3">
                 <h4 class="footer-color "><a href="/" class="text-decoration-none footer-color logo-hvr">HAMDY</a></h4> 
-                <small class="footer-color">Subscription and Membership Management Software</small>
+                <small class="footer-color">Blog about web development and mobile application</small>
             </div>  
             <div class="col-lg-4 col-md-4 p-3">
                 <div class="footer-social">
@@ -262,8 +258,6 @@
     <script>
         AOS.init();
     </script>
-    
     <!-- End js files -->
-
 
 </html>

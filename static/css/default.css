@@ -90,6 +90,20 @@ p, li, span, label, input, textarea, small{
 .h-margin{
 	margin: 0;
 }
+.margin-container{
+	margin-top: 100px;
+}
+
+hr{
+	border-top: 1px solid var(--hrColor);
+}
+
+.top-button{
+	margin-top: 16px;
+	font-size: 16px;
+	color:#252525;
+}
+
 /*End body style*/
 
 /*Start navbar style*/
@@ -151,6 +165,24 @@ p, li, span, label, input, textarea, small{
 .search-btn-icon{
 	color:var(--searchIconColor);
 }
+.fass {
+	cursor: pointer;
+	transform: rotate(-25deg);
+	color: var(--navLinkColor);
+}
+
+.nav-icon-p{
+	padding: 0px 4px;
+}
+.fixed-nav{
+	position: fixed;
+    width: 100%;
+    z-index: 9999;
+}
+
+.shadow{
+	transition: 0.3s ease-in-out;
+}
 
 /*End navbar style*/
 
@@ -183,7 +215,7 @@ p, li, span, label, input, textarea, small{
 	border:1px solid var(--headIconBorderColor);
 }
 
-  .social:hover {
+.social:hover {
 	background-color: var(--headIconBorderColor);
 	color: var(--headIconHoverColor);
 	
@@ -192,21 +224,21 @@ p, li, span, label, input, textarea, small{
 .head-icon{
 	font-size: 21px;
 	margin-top: 9px;
-  }
+}
 
 .logo-hvr:hover{
 	color:#fff;
 }  
 
 /*End head section style*/
-  
+
 /*Start main section style*/
 .mainSection{
-	  margin-top:40px
-  }
+	margin-top:40px
+}
 
 /*End main section style*/
-  
+
 /*Start card style*/
 .card{
 	background-color:var(--cardBackgroundColor);
@@ -249,9 +281,35 @@ p, li, span, label, input, textarea, small{
 	box-shadow: 0 4px 8px 0 var(--shdowColor), 0 6px 20px 0 var(--shdowColor);	
 }
 
-
 .big-size{
     font-size: 2.5rem;
+}
+
+.font-size-18{
+	font-size: 18px;
+}
+
+.font-size-25{
+	font-size: 25px;
+}
+
+.card-h4{
+	color: #fff; 
+	margin-top:100px;
+}
+.card-h2{
+	color: #fff; 
+	margin-top:100px;
+}
+.background-header-img{
+	min-height: 350px;
+    border-radius: 10px;
+    background-size: cover !important;
+    background-position: 50% 50% !important;
+	cursor: pointer;
+}
+.see-more{
+	font-weight: 400;
 }
 /*End card style*/
 
@@ -276,27 +334,27 @@ p, li, span, label, input, textarea, small{
 	bottom: 30px;
 	right: 30px;
 	transition: background-color .3s, 
-	  opacity .5s, visibility .5s;
+	opacity .5s, visibility .5s;
 	opacity: 0;
 	visibility: hidden;
 	z-index: 1000;
-  }
-  #button::after {
+}
+#button::after {
 	font-weight: normal;
 	font-style: normal;
 	font-size: 2em;
 	line-height: 50px;
 	color: #fff;
-  }
-  #button:hover {
+}
+#button:hover {
 	cursor: pointer;
-  }
+}
 
-  #button.show {
+#button.show {
 	opacity: 1;
 	visibility: visible;
-  }
-  
+}
+
 /*End scroll top button style*/
 
 /*Start footer style*/
@@ -314,7 +372,7 @@ p, li, span, label, input, textarea, small{
 	display: inline-block;
 	border-radius: 50%;
 	text-align: center;
-  }
+}
 .footer-color{
 	color: var(--footerColor);
 }
@@ -342,23 +400,24 @@ p, li, span, label, input, textarea, small{
 .submit-button:hover{
 	color: var(--buttonTextColor);
 }
-/*End Start contact style*/
+/*End contact style*/
 
+/*Start modal style*/
 
-.model-border{
-	border-bottom:none;
+.border-none{
+	border-bottom: none;
 }
 
-hr{
-	border-top: 1px solid var(--hrColor);
+.modal-backdrop {
+    z-index: 100000 !important;
 }
-.background-header-img{
-	min-height: 350px;
-    border-radius: 10px;
-    background-size: cover !important;
-    background-position: 50% 50% !important;
-	cursor: pointer;
+
+.modal {
+    z-index: 100001 !important;
 }
+/*End modal style*/
+
+/*Start form style*/
 .form-control{
 	padding: 1em;
 	height: auto;
@@ -376,43 +435,5 @@ hr{
     border-color:  var(--formBorderColor);
 	color: var(--secondaryText);
 }
-#overlay{
-	position:fixed;
-	z-index:99999;
-	top:0;
-	left:0;
-	bottom:0;
-	right:0;
-	background:rgba(0,0,0,0.9);
-	transition: 1s 0.4s;
-  }
-  .fass {
-	cursor: pointer;
-	transform: rotate(-25deg);
-	color: var(--navLinkColor);
-}
+/*End form style*/
 
-.nav-icon-p{
-	padding: 0px 4px;
-}
-.see-more{
-	font-weight: 400;
-}
-.border-none{
-	border-bottom: none;
-}
-.fixed-nav{
-	position: fixed;
-    width: 100%;
-    z-index: 9999;
-}
-.margin-container{
-	margin-top: 100px;
-}
-.modal-backdrop {
-    z-index: 100000 !important;
-  }
-
-  .modal {
-    z-index: 100001 !important;
-  }
