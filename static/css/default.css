@@ -104,6 +104,9 @@ hr{
 	color:#252525;
 }
 
+.margin-none{
+	margin-bottom:0;
+}
 /*End body style*/
 
 /*Start navbar style*/
@@ -436,4 +439,3 @@ hr{
 	color: var(--secondaryText);
 }
 /*End form style*/
-

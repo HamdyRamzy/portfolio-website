@@ -39,6 +39,9 @@
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item"><a  type="button" data-toggle="modal" data-target="#searchBar"  class="nav-link ml-auto font-size-18"><i class="bi bi-search nav-icon-p"></i></a></li>
                         <li class="nav-item"><i id="icon" class="fass bi bi-brightness-low-fill nav-icon-p font-size-25 dark-button"></i></li>
+                        {% if request.user.is_superuser %}
+                        <li class="nav-item"><a class="nav-link ml-auto font-size-18" href="/logout"><i class="bi bi-box-arrow-right nav-icon-p"></i></a></li>
+                        {%endif%}
                     </ul>
                     <script src="../static/js/dark.js"></script>
             </div>
@@ -104,7 +107,7 @@
                                             <div class="card-body text-center">
                                                 <h4  class="card-head card-h4">How can i created app by flutter and django?</h4>
                                                 <p class="text-white">In this articlei will explain howcanicreated app by django</p>
-                                                <small class="text-white">02.24.21</small>
+                                                <small class="text-white">02.24.21 · 2 min read</small>
                                             </div>
                                         </div>
                                     </div>
@@ -113,7 +116,7 @@
                                             <div class="card-body text-center">
                                                 <h4 class="card-head card-h4">How can i created app by flutter and django?</h4>
                                                 <p class="text-white">In this articlei will explain howcanicreated app by django</p>
-                                                <small class="text-white">02.24.21</small>
+                                                <small class="text-white">02.24.21 · 2 min read</small>
                                             </div>
                                         </div>
                                     </div>  
@@ -130,7 +133,7 @@
                                             <div class="card-body text-center">
                                                 <h4 class="card-head card-h4">How can i created app by flutter and django?</h4>
                                                 <p class="text-white">In this articlei will explain howcanicreated app by django</p>
-                                                <small class="text-white">02.24.21</small>
+                                                <small class="text-white">02.24.21 · 2 min read</small>
                                             </div>
                                         </div>
                                     </div>
@@ -139,7 +142,7 @@
                                             <div class="card-body text-center">
                                                 <h4  class="card-head card-h4">How can i created app by flutter and django?</h4>
                                                 <p class="text-white">In this articlei will explain howcanicreated app by django</p>
-                                                <small class="text-white">02.24.21</small>
+                                                <small class="text-white">02.24.21 · 2 min read</small>
                                             </div>
                                         </div>
                                     </div>
@@ -167,7 +170,6 @@
                                         <small>oct 2021 - Present . 1 mon</small>
                                     </div>
                                 </div> 
-                        
                             </div>
                         </div>
                         <div class="card">
@@ -232,9 +234,9 @@
     <!-- Start Footer -->
     <footer class="footer">
         <div class="mainFooterContent row justify-content-between ">
-            <div class="col-lg-4 col-md-4 p-3">
-                <h4 class="footer-color "><a href="/" class="text-decoration-none footer-color logo-hvr">HAMDY</a></h4> 
-                <small class="footer-color">Blog about web development and mobile application</small>
+            <div class="col-lg-5 col-md-5 p-3">
+                <h4 class="footer-color margin-none"><a href="/" class="text-decoration-none footer-color logo-hvr">HAMDY</a></h4> 
+                <small class="footer-color">Blog about web development and mobile application.</small>
             </div>  
             <div class="col-lg-4 col-md-4 p-3">
                 <div class="footer-social">
@@ -259,5 +261,4 @@
         AOS.init();
     </script>
     <!-- End js files -->
-
 </html>

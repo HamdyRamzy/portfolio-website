@@ -15,7 +15,7 @@
     {% if form.is_bound %}
         <!-- if input not valid after submit -->
         {% if field.errors %}
-          {% render_field field class="form-control is-invalid" %}
+          {% render_field field class="form-control shadow-none is-invalid" %}
           {% for error in field.errors %}
             <div class="invalid-feedback">
               {{ error }}
@@ -23,11 +23,11 @@
           {% endfor %}
         <!-- if input valid after submit -->
           {% else %}
-          {% render_field field class="form-control is-valid" %}
+          {% render_field field class="form-control shadow-none is-valid" %}
         {% endif %}
     <!-- render the inputs before submit -->
     {% else %}
-        {% render_field field class="form-control" placeholder=field.label%}
+        {% render_field field class="form-control shadow-none" placeholder=field.label%}
     {% endif %}
 
   </div>

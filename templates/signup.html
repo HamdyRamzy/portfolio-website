@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Sgin Up - Hamdy Ramzy
+{% endblock %}
+
+{% block body %}
+    
+    <div class="mt-5">
+      <div class="col-lg-6 col-sm-12"> 
+        <h2 class="text-center">Registration</h2>      
+        <div class="card mt-3">
+          <div class="card-body">
+            <form method="POST" novalidate>
+                {% csrf_token %}
+                {% include 'includes/form.html' %}
+                <button type="submit" class="btn submit-button shadow-none">Sign up</button>
+                <div class="text-center">
+                  <small class="text-muted">Do you have an account ? </small>
+                  <a class="btn w-100 submit-button shadow-none mt-3" href="{% url 'login' %}">Log In</a>
+                </div>
+              </form>
+            </div>
+        </div>
+      </div>
+    </div>
+
+{% endblock %}
