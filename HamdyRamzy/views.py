@@ -18,10 +18,10 @@ def contact(request):
     return render(request, 'contact.html', {'contact_page': 'active'})  
 
 def project_detail(request):
-    #Contact page logic
+    #project detail page logic
     return render(request, 'project_detail.html')  
     
 
 def post_detail(request):
-    #Contact page logic
+    #post detail page logic
     return render(request, 'post_detail.html')  

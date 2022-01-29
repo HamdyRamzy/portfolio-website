@@ -116,11 +116,11 @@ hr{
 .navbar-light .navbar-nav .nav-link:hover{
 	color:var(--navLinkHoverColor);
 }
-.navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link {
+.navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active {
     color: var(--aciveNavLinkColor);
 }
 @media (min-width: 768px){
-.navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link {
+.navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active {
 	border-bottom: 2px solid var(--aciveNavLinkColor);
 }
 }
