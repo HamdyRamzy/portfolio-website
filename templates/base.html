@@ -13,10 +13,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <link rel="shortcut icon" type="../static/images/favicon.png" href="../static/images/favicon.png">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/hover-min.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/github-calendar-responsive.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/default.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/hover-min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/github-calendar-responsive.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/default.css' %}">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
@@ -40,7 +40,7 @@
                         {% if request.user.is_superuser %}
                         <li class="nav-item dropdown">
                             <a class="nav-link" href="#" id="userMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img src="../static/images/favicon.png"
+                            <img src="{{photo.photo.url}}"
                             class="rounded-circle"
                             height="35"
                             width="35"
@@ -57,7 +57,7 @@
                         <li class="nav-item"><i id="icon" class="fass bi bi-brightness-low-fill nav-icon-p font-size-25 dark-button"></i></li>
                         {%endif%}
                     </ul>
-                    <script src="../static/js/dark.js"></script>
+                    <script src="{% static 'js/dark.js' %}"></script>
             </div>
         </div>
     </nav>
@@ -79,18 +79,17 @@
                 <div class="row">
                     <div class="col-lg-3 col-md-4 col-sm-12 photo ">
                         <a type="button" class="" data-toggle="modal" data-target="#pictureModal">
-                            <img src="../static/images/favicon.png" alt="HamdyRamzy" height="200" width="200">
+                            <img src="{{owner.photo.url}}" class="rounded-circle" alt="HamdyRamzy" height="200" width="200">
                         </a>
                     </div>
                     <div class="col-lg-4 col-md-5 col-sm-12 infoContainer">
                         <div class="info">
-                            <h2>Hamdy Ramzy</h2>
-                            <p>Fullstack web developer</p>
+                            <h2>{{owner.name}}</h2>
+                            <p>{{owner.bio}}</p>
                             <div class="social-container">
-                                <a class="social" href="#"><i class="fab fa-facebook-f head-icon"></i></a>
-                                <a class="social" href="#"><i class="fab fa-linkedin-in head-icon"></i></a>
-                                <a class="social" href="#"><i class="fab fa-github head-icon"></i></a>
-                                <a class="social" href="#"><i class="fab fa-twitter head-icon"></i></a>
+                                {%for link in links%}
+                                    <a class="social" target="_blank" href="{{link.url}}"><i class="{{link.icon}} head-icon"></i></a>
+                                {%endfor%}
                             </div>
                         </div>
                     </div>
@@ -108,7 +107,7 @@
                             <div class="card-body">
                                 <h5 class="h5-card-head">About me</h5>
                                 <p>
-                                    I'm a python developer using native python & Django framework, I'm ready to gain more experience as a Django web developer and currently, I'm working with flutter as a mobile applications framework.
+                                    {{owner.about}}
                                 </p>
                             </div>
                         </div>
@@ -116,24 +115,23 @@
                             <div class="card-body">
                                 <h5 class="h5-card-head">Latest Projects</h5>
                                 <div class="row postsContainer">
-                                    <div class="col-lg-6 col-md-6 col-sm-12">
-                                        <div class="card background-header-img hvr-bob card-shadow" style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7) ), url(../static/images/unsplash4.jpg);">
-                                            <div class="card-body text-center">
-                                                <h4  class="card-head card-h4">How can i created app by flutter and django?</h4>
-                                                <p class="text-white">In this articlei will explain howcanicreated app by django</p>
-                                                <small class="text-white">02.24.21 · 2 min read</small>
-                                            </div>
+                                    {%for post in projectPosts%}
+                                    
+                                        <div class="col-lg-6 col-md-6 col-sm-12">
+                                            <a href="{% url 'project-detail' post.slug %}" class="text-decoration-none">
+                                                <div class="card background-header-img hvr-bob card-shadow" style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7) ), url({{post.post_picture.url}});">
+                                                    <div class="card-body text-center c-table">
+                                                        <div class="table-container">
+                                                            <h4 class="card-head table-text-color">{{post.title}}</h4>
+                                                            <p class="table-text-color">{{post.description}}</p>
+                                                            <small class="table-text-color">{{post.uploaded_date}} · {{post.time}} min read</small>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </a>
                                         </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-12">
-                                        <div class="card background-header-img hvr-bob card-shadow" style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7) ), url(../static/images/unsplash3.jpg);">
-                                            <div class="card-body text-center">
-                                                <h4 class="card-head card-h4">How can i created app by flutter and django?</h4>
-                                                <p class="text-white">In this articlei will explain howcanicreated app by django</p>
-                                                <small class="text-white">02.24.21 · 2 min read</small>
-                                            </div>
-                                        </div>
-                                    </div>  
+                                    
+                                    {%endfor%}
                                 </div>
                                 <a href="/projects" class="see-more">Click to see more project posts<i class="bi bi-arrow-right-short"></i></a>
                             </div>
@@ -142,24 +140,21 @@
                             <div class="card-body">
                                 <h5 class="h5-card-head">Latest Blog Posts</h5>
                                 <div class="row postsContainer">
-                                    <div class="col-lg-6 col-md-6 col-sm-12">
-                                        <div class="card background-header-img hvr-bob card-shadow" style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7) ), url(../static/images/unsplash5.jpg);">
-                                            <div class="card-body text-center">
-                                                <h4 class="card-head card-h4">How can i created app by flutter and django?</h4>
-                                                <p class="text-white">In this articlei will explain howcanicreated app by django</p>
-                                                <small class="text-white">02.24.21 · 2 min read</small>
-                                            </div>
+                                    {%for post in blogPosts%}
+                                        <div class="col-lg-6 col-md-6 col-sm-12">
+                                            <a href="{% url 'post-detail' post.slug %}" class="text-decoration-none">
+                                                <div class="card background-header-img hvr-bob card-shadow" style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7) ), url({{post.post_picture.url}});">
+                                                    <div class="card-body text-center c-table">
+                                                        <div class="table-container">
+                                                            <h4 class="card-head table-text-color">{{post.title}}</h4>
+                                                            <p class="table-text-color">{{post.description}}</p>
+                                                            <small class="table-text-color">{{post.uploaded_date}} · {{post.time}} min read</small>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </a>
                                         </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-12">
-                                        <div class="card background-header-img hvr-bob card-shadow" style="background: linear-gradient( rgba(119, 86, 86, 0.5), rgba(0, 0, 0, 0.7) ), url(../static/images/unsplash6.jpg);">
-                                            <div class="card-body text-center">
-                                                <h4  class="card-head card-h4">How can i created app by flutter and django?</h4>
-                                                <p class="text-white">In this articlei will explain howcanicreated app by django</p>
-                                                <small class="text-white">02.24.21 · 2 min read</small>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    {%endfor%}
                                 </div>
                                 <a href="/blog" class="see-more">Click to see more blog posts<i class="bi bi-arrow-right-short"></i></a>
                             </div>
@@ -176,30 +171,40 @@
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="h5-card-head">Work Experience</h5>
-                                <div class="row experienceContainer">
-                                    <div class="experienceImageContainer">
-                                        <img src="../static/images/upworkgreen.png" class="experienceImage" alt="-" height="60" width="60">
+                                {%for work in works%}
+                                    <div class="row experienceContainer">
+                                        <div class="experienceImageContainer">
+                                            <img src="{{work.company_logo.url}}" class="experienceImage" alt="-" height="60" width="60">
+                                        </div>
+                                        <div class="experienceDescription">
+                                            
+                                            <h6 class="p-margin">{{work.title}}</h6>
+                                            <small class="p-margin d-block" >{{work.company_name}} . {{work.employment_type}}</small>
+                                            <small class="p-margin d-block" >{{work.start_date}} - {% if work.end_date %} 
+                                                {{ work.end_date }} . 12 mon
+                                                {%else%}
+                                                Present 
+                                                {%endif%}</small>
+                                        </div>
                                     </div>
-                                    <div class="experienceDescription">
-                                        <h6 class="p-margin">Work Experience</h6>
-                                        <p class="p-margin">upwork.freelancer</p>
-                                        <small>oct 2021 - Present . 1 mon</small>
-                                    </div>
-                                </div> 
+                                {%endfor%} 
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="h5-card-head">licenses & certifications</h5>
                                 <div class="row experienceContainer">
+                                    {%for certificate in certificates%}
                                     <div class="experienceImageContainer">
-                                        <img src="../static/images/edx.jpg" class="experienceImage" alt="-" height="60" width="60">
+                                        <img src="{{certificate.organization_logo.url}}" class="experienceImage" alt="-" height="60" width="60">
                                     </div>
                                     <div class="experienceDescription">
-                                        <h6 class="p-margin">CS50x: CS50's Introduction to Computer Science</h6>
-                                        <p class="p-margin">Issue Aug2021 . No Expiration Date</p>
-                                        <small>Credential ID 880e144e8a8a40dda4e15ea03509131c</small>
+                                        <h6 class="p-margin">{{certificate.title}}</h6>
+                                        <small class="p-margin d-block">{{certificate.issue_organization}}</small>
+                                        <small class="p-margin d-block">Issued {{certificate.issue_date}} . No Expiration Date</small>
+                                        <small class="p-margin d-block">Credential ID {{certificate.credential_id}}</small>
                                     </div>
+                                    {%endfor%}
                                 </div>
                         
                             </div>
@@ -210,9 +215,9 @@
                         <div class="card-body">
                             <h5 class="h5-card-head">Contact Info</h5>
                             <ul class="list-group list-group-flush contactIconContainer">
-                                <li class="list-group-item"><i class="fas fa-phone-alt contactIcon"></i> 01064549359</li>
-                                <li class="list-group-item"><i class="far fa-envelope contactIcon"></i> hamdyramzy34@gmail.com</li>
-                                <li class="list-group-item"><i class="fas fa-birthday-cake contactIcon"></i> 24-Dec-1997</li>
+                                {%for contact in contacts%}
+                                <li class="list-group-item"><i class="{{contact.icon}} contactIcon"></i> {{contact.information}}</li>
+                                {%endfor%}
                             </ul>
                         </div>
                     </div>
@@ -220,11 +225,9 @@
                         <div class="card-body">
                             <h5 class="h5-card-head">Skills</h5>
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item">Django</li>
-                                <li class="list-group-item">Python</li>
-                                <li class="list-group-item">CSS</li>
-                                <li class="list-group-item">HTML</li>
-                                <li class="list-group-item">Javascript</li>
+                                {% for skill in skills %}
+                                    <li class="list-group-item">{{skill.name}}</li>
+                                {%endfor%}
                             </ul>
                         </div>
                     </div>
@@ -232,8 +235,10 @@
                         <div class="card-body">
                             <h5 class="h5-card-head">Language</h5>
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item"><strong>Arabic</strong>: Native Speaker</li>
-                                <li class="list-group-item"><strong>English</strong>: Professional</li>
+                                {%for language in languages%}
+                                    <li class="list-group-item"><strong>{{language.name}}</strong>: {{language.Proficiency}}</li>
+                                {%endfor%}
+
                             </ul>
                         </div>
                     </div>
@@ -241,8 +246,8 @@
             </div>
         </section>
     </div>
-    <script src="../static/js/githun-calender.min.js"></script>
-    <script src="../static/js/github-api.js"></script>
+    <script src="{% static 'js/githun-calender.min.js' %}"></script>
+    <script src="{% static 'js/github-api.js' %}"></script>
 </body>   
 {% endblock %}
 </div>      
@@ -256,10 +261,9 @@
             </div>  
             <div class="col-lg-4 col-md-4 p-3">
                 <div class="footer-social">
-                    <a href="#"><i class="fab fa-facebook footer-color footer-icon"></i></a>
-                    <a href="#"><i class="fab fa-linkedin footer-color footer-icon"></i></a>
-                    <a href="#"><i class="fab fa-github footer-color footer-icon"></i></a>
-                    <a href="#"><i class="fab fa-twitter footer-color footer-icon"></i></a>
+                    {%for link in footerLinks%}
+                        <a href="{{link.url}}" target="_blank"><i class="{{link.icon}} footer-color footer-icon"></i></a>
+                    {%endfor%}
                 </div>
                 <small class="copyright footer-color">&copy; 2020–2021 Hamdy Ramzy</small>
             </div>     
@@ -268,10 +272,10 @@
     <!-- End Footer -->
     
     <!-- Start js files -->
-    <script src="../static/js/jquery-3.6.0.min.js"></script>
-    <script src="../static/js/popper.min.js"></script>
-    <script src="../static/js/bootstrap.min.js"></script>
-    <script src="../static/js/top-button.js"></script>   
+    <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/top-button.js' %}"></script>   
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init();

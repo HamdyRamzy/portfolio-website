@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from ckeditor_uploader.fields import RichTextUploadingField
 from taggit.managers import TaggableManager
-
+from django.utils.text import slugify
 
 # Create owner model.
 class Owner(models.Model):
@@ -41,6 +41,26 @@ class SocialMedia(models.Model):
 class Skill(models.Model):
     user = models.ForeignKey(User, related_name='skill', on_delete=models.CASCADE)
     name = models.CharField(null=True, blank=True, max_length=150)
+    
+    def __str__(self):
+        return self.name
+
+
+# Create Language Proficiency choices.
+Proficiency = {
+    ('elementary proficiency', 'elementary proficiency'),
+    ('limited working proficiency', 'limited working proficiency'),
+    ('professional working proficiency', 'professional working proficiency'),
+    ('full professional proficiency', 'full professional proficiency'),
+    ('native or bilingual proficiency', 'native or bilingual proficiency'),
+}
+
+
+# Create language model.
+class Language(models.Model):
+    user = models.ForeignKey(User, related_name='language', on_delete=models.CASCADE)
+    name = models.CharField(null=True, blank=True, max_length=150)
+    Proficiency = models.CharField(null=True, blank=True, choices=Proficiency, max_length=200)
     
     def __str__(self):
         return self.name
@@ -91,9 +111,18 @@ class BlogPost(models.Model):
     description = models.CharField(null=True, blank=True, max_length=1000)
     content = RichTextUploadingField()
     post_picture = models.ImageField(null=True, upload_to='blog post pictures/%y/%m/%d')
-    uploaded_date = models.DateTimeField(null=True, blank=True)
+    uploaded_date = models.DateField(null=True, blank=True)
     tags = TaggableManager()
+    time = models.PositiveIntegerField(null=True, blank=True)
+    slug = models.SlugField(null=True, blank=True, max_length=255, unique=True)
 
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super(BlogPost, self).save(*args, **kwargs)
+
+    def __str__(self):
+        return self.title
 
 # Create Blog Post model.
 class ProjectPost(models.Model):
@@ -102,5 +131,15 @@ class ProjectPost(models.Model):
     description = models.CharField(null=True, blank=True, max_length=1000)
     content = RichTextUploadingField()
     post_picture = models.ImageField(null=True, upload_to='project post pictures/%y/%m/%d')
-    uploaded_date = models.DateTimeField(null=True, blank=True)
+    uploaded_date = models.DateField(null=True, blank=True)
     tags = TaggableManager()    
+    time = models.PositiveIntegerField(null=True, blank=True)
+    slug = models.SlugField(null=True, blank=True, max_length=255, unique=True)
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super(ProjectPost, self).save(*args, **kwargs)
+    
+    def __str__(self):
+        return self.title

@@ -1,61 +1,35 @@
 {% extends 'base.html' %}
 {% load static %}
 
-    {%block title%}Hamdy Ramzy - Project detail{%endblock%}
+    {%block title%}Hamdy Ramzy - {{project.title}}{%endblock%}
 
 <body>
 {% block body %}
     <div class="mt-5">
-        <div class="card background-header-img" style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(../static/images/unsplash7.jpg);">
-            <div class="card-body text-center">
-                <h2 class="big-size card-head card-h2">How can i created app by flutter and django?</h2>
-                <p class="text-white">In this articlei will explain howcanicreated app by django</p>
-                <small class="text-white">02.24.21</small>
+        <div class="card background-header-img" style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url({{project.post_picture.url}});">
+            <div class="card-body text-center c-table">
+                <div class="table-container">
+                    <h2 class="big-size card-head table-text-color">{{project.title}}</h2>
+                    <p class="table-text-color">{{project.description}}</p>
+                    <small class="table-text-color">{{project.uploaded_date}}</small>
+                </div>
             </div>
         </div>
         <div class="mt-5">
-            <h2>How can i created app by flutter and django?</h2>
-            <p>There are plenty of great data mocking libraries available for almost every language and platform. But not everyone is a programmer or has time to learn a new framework. Mockaroo allows you to quickly and easily to download large amounts of randomly generated test data based on your own specs which you can then load directly into your test environment using SQL or CSV formats. No programming is required.</p>
-            <p>There are plenty of great data mocking libraries available for almost every language and platform. But not everyone is a programmer or has time to learn a new framework. Mockaroo allows you to quickly and easily to download large amounts of randomly generated test data based on your own specs which you can then load directly into your test environment using SQL or CSV formats. No programming is required.</p>
-            <p>There are plenty of great data mocking libraries available for almost every language and platform. But not everyone is a programmer or has time to learn a new framework. Mockaroo allows you to quickly and easily to download large amounts of randomly generated test data based on your own specs which you can then load directly into your test environment using SQL or CSV formats. No programming is required.</p>
-            <p>There are plenty of great data mocking libraries available for almost every language and platform. But not everyone is a programmer or has time to learn a new framework. Mockaroo allows you to quickly and easily to download large amounts of randomly generated test data based on your own specs which you can then load directly into your test environment using SQL or CSV formats. No programming is required.</p>
-            <h2>How can i created app by flutter and django?</h2>
-            <p>There are plenty of great data mocking libraries available for almost every language and platform. But not everyone is a programmer or has time to learn a new framework. Mockaroo allows you to quickly and easily to download large amounts of randomly generated test data based on your own specs which you can then load directly into your test environment using SQL or CSV formats. No programming is required.</p>
-            <p>There are plenty of great data mocking libraries available for almost every language and platform. But not everyone is a programmer or has time to learn a new framework. Mockaroo allows you to quickly and easily to download large amounts of randomly generated test data based on your own specs which you can then load directly into your test environment using SQL or CSV formats. No programming is required.</p>
-            <h2>How can i created app by flutter and django?</h2>
-            <p>There are plenty of great data mocking libraries available for almost every language and platform. But not everyone is a programmer or has time to learn a new framework. Mockaroo allows you to quickly and easily to download large amounts of randomly generated test data based on your own specs which you can then load directly into your test environment using SQL or CSV formats. No programming is required.</p>
-            <p>There are plenty of great data mocking libraries available for almost every language and platform. But not everyone is a programmer or has time to learn a new framework. Mockaroo allows you to quickly and easily to download large amounts of randomly generated test data based on your own specs which you can then load directly into your test environment using SQL or CSV formats. No programming is required.</p>
-            <p>There are plenty of great data mocking libraries available for almost every language and platform. But not everyone is a programmer or has time to learn a new framework. Mockaroo allows you to quickly and easily to download large amounts of randomly generated test data based on your own specs which you can then load directly into your test environment using SQL or CSV formats. No programming is required.</p>
-            <p>There are plenty of great data mocking libraries available for almost every language and platform. But not everyone is a programmer or has time to learn a new framework. Mockaroo allows you to quickly and easily to download large amounts of randomly generated test data based on your own specs which you can then load directly into your test environment using SQL or CSV formats. No programming is required.</p>
+        {{project.content|safe}}
         </div>
     </div>
     <div class="mt-5">
         <h2 class="">Related projects</h2>
         <div class="row mt-5">
             <div class="col-lg-4">
-                <div class="card background-header-img  hvr-bob card-shadow" style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(../static/images/unsplash2.jpg);">
-                    <div class="card-body text-center">
-                        <h4 class="card-head card-h2">How can i created app by flutter and django?</h4>
-                        <p class="text-white">In this articlei will explain howcanicreated app by django</p>
-                        <small class="text-white">02.24.21 · 2 min read</small>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="card background-header-img  hvr-bob card-shadow" style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(../static/images/unsplash3.jpg);">
-                    <div class="card-body text-center">
-                        <h4 class="card-head card-h2">How can i created app by flutter and django?</h4>
-                        <p class="text-white">In this articlei will explain howcanicreated app by django</p>
-                        <small class="text-white">02.24.21 · 2 min read</small>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
                 <div class="card background-header-img hvr-bob card-shadow" style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(../static/images/unsplash4.jpg);">
-                    <div class="card-body text-center">
-                        <h4 class="card-head card-h2">How can i created app by flutter and django?</h4>
-                        <p class="text-white">In this articlei will explain howcanicreated app by django</p>
-                        <small class="text-white">02.24.21 · 2 min read</small>
+                    <div class="card-body text-center c-table">
+                        <div class="table-container">
+                            <h4 class="card-head table-text-color">How can i created app by flutter and django?</h4>
+                            <p class="table-text-color">In this articlei will explain howcanicreated app by django</p>
+                            <small class="table-text-color">02.24.21 · 2 min read</small>
+                        </div>
                     </div>
                 </div>
             </div>

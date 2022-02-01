@@ -248,7 +248,13 @@ hr{
 	margin-bottom:20px;
 	border-radius: 10px;
 }
-
+.c-table{
+	display: table;
+}
+.table-container{
+	display: table-cell;
+	vertical-align: middle;
+}
 .h5-card-head{
 	margin-bottom:20px;
 }
@@ -296,13 +302,8 @@ hr{
 	font-size: 25px;
 }
 
-.card-h4{
-	color: #fff; 
-	margin-top:100px;
-}
-.card-h2{
-	color: #fff; 
-	margin-top:100px;
+.table-text-color{
+	color: white;
 }
 .background-header-img{
 	min-height: 350px;

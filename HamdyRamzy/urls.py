@@ -4,8 +4,8 @@ from . import views
 urlpatterns = [
 	path('', views.base, name="base"),
 	path('projects/', views.projects, name="projects"),
-	path('projects/How-can-link-flutter-with-django', views.project_detail, name="project-detail"),
-	path('blog/How-can-link-flutter-with-django', views.post_detail, name="post-detail"),
+	path('projects/<slug:slug>/', views.project_detail, name="project-detail"),
+	path('blog/<slug:slug>/', views.post_detail, name="post-detail"),
 	path('blog/', views.blog, name="blog"),
 	path('contact/', views.contact, name="contact"),
 
