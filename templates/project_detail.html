@@ -11,28 +11,42 @@
                 <div class="table-container">
                     <h2 class="big-size card-head table-text-color">{{project.title}}</h2>
                     <p class="table-text-color">{{project.description}}</p>
+                    <small class="d-block table-text-color">
+                        {% for tag in project.tags.all %}
+                        #{{tag }}
+                        {%endfor%}
+                    </small>
                     <small class="table-text-color">{{project.uploaded_date}}</small>
                 </div>
             </div>
         </div>
-        <div class="mt-5">
+        <div class="mt-5 img-container">
         {{project.content|safe}}
         </div>
     </div>
     <div class="mt-5">
         <h2 class="">Related projects</h2>
         <div class="row mt-5">
-            <div class="col-lg-4">
-                <div class="card background-header-img hvr-bob card-shadow" style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(../static/images/unsplash4.jpg);">
-                    <div class="card-body text-center c-table">
-                        <div class="table-container">
-                            <h4 class="card-head table-text-color">How can i created app by flutter and django?</h4>
-                            <p class="table-text-color">In this articlei will explain howcanicreated app by django</p>
-                            <small class="table-text-color">02.24.21 · 2 min read</small>
+            {%for project in related_projects%}
+                <div class="col-lg-4">
+                    <a href="{% url 'project-detail' project.slug %}" class="text-decoration-none">
+                        <div class="card background-header-img hvr-bob card-shadow" style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url({{project.post_picture.url}});">
+                            <div class="card-body text-center c-table">
+                                <div class="table-container">
+                                    <h4 class="card-head table-text-color">{{project.title}}</h4>
+                                    <p class="table-text-color">{{project.description}}</p>
+                                    <small class="d-block table-text-color">
+                                        {% for tag in project.tags.all %}
+                                        #{{tag }}
+                                        {%endfor%}
+                                    </small>
+                                    <small class="table-text-color">{{project.uploaded_date}} · {{project.time}} min read</small>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
-            </div>
+            {%endfor%}
         </div>
     </div>
     

@@ -6,7 +6,8 @@ def base(request):
     #Base logic
     owner = Owner.objects.all().first()
     links = SocialMedia.objects.all()
-    contacts = Contact.objects.all()
+    contacts = Contact.objects.all().exclude(name='phone')
+    phone = Contact.objects.get(name='phone')
     skills = Skill.objects.all()
     languages = Language.objects.all()
     works = Work.objects.all()
@@ -19,6 +20,7 @@ def base(request):
         'links':links,
         'skills':skills,
         'contacts':contacts,
+        'phone':phone,
         'languages':languages,
         'works':works,
         'certificates':certificates,
@@ -52,9 +54,12 @@ def contact(request):
 def project_detail(request, slug):
     #project detail page logic
     project = get_object_or_404(ProjectPost, slug=slug)
+    project_tags = project.tags.all()
+    related_projects = ProjectPost.objects.filter(tags__in=project_tags).exclude(slug=project.slug).distinct()[:3]
     context = {
         'projects_page': 'active',
         'project': project,
+        'related_projects':related_projects,
     }
     return render(request, 'project_detail.html', context)  
     
@@ -62,9 +67,12 @@ def project_detail(request, slug):
 def post_detail(request, slug):
     #post detail page logic
     post = get_object_or_404(BlogPost, slug=slug)
+    post_tags = post.tags.all()
+    related_posts = BlogPost.objects.filter(tags__in=post_tags).exclude(slug=post.slug).distinct()[:3]
     context = {
         'blog_page': 'active',
         'post': post,
+        'related_posts':related_posts,
     }
     print(post.pk)
     return render(request, 'post_detail.html', context)

@@ -25,6 +25,11 @@
         <div class="col-lg-6">
           <h2 class="big-size">{{project.title}}</h2>
           <p>{{project.description}}</p>
+          <small class="d-block">
+            {% for tag in project.tags.all %}
+            #{{tag }}
+            {%endfor%}
+          </small>
           <small>{{project.uploaded_date}} · {{project.time}} min read</small>
         </div>
       </div>

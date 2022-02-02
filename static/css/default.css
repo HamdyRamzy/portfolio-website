@@ -107,6 +107,9 @@ hr{
 .margin-none{
 	margin-bottom:0;
 }
+.img-container img{
+	width: 100%;
+}
 /*End body style*/
 
 /*Start navbar style*/

@@ -115,16 +115,21 @@
                             <div class="card-body">
                                 <h5 class="h5-card-head">Latest Projects</h5>
                                 <div class="row postsContainer">
-                                    {%for post in projectPosts%}
+                                    {%for project in projectPosts%}
                                     
                                         <div class="col-lg-6 col-md-6 col-sm-12">
-                                            <a href="{% url 'project-detail' post.slug %}" class="text-decoration-none">
-                                                <div class="card background-header-img hvr-bob card-shadow" style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7) ), url({{post.post_picture.url}});">
+                                            <a href="{% url 'project-detail' project.slug %}" class="text-decoration-none">
+                                                <div class="card background-header-img hvr-bob card-shadow" style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7) ), url({{project.post_picture.url}});">
                                                     <div class="card-body text-center c-table">
                                                         <div class="table-container">
-                                                            <h4 class="card-head table-text-color">{{post.title}}</h4>
-                                                            <p class="table-text-color">{{post.description}}</p>
-                                                            <small class="table-text-color">{{post.uploaded_date}} · {{post.time}} min read</small>
+                                                            <h4 class="card-head table-text-color">{{project.title}}</h4>
+                                                            <p class="table-text-color">{{project.description}}</p>
+                                                            <small class="d-block table-text-color">
+                                                                {% for tag in project.tags.all %}
+                                                                #{{tag }}
+                                                                {%endfor%}
+                                                            </small>
+                                                            <small class="table-text-color">{{project.uploaded_date}} · {{project.time}} min read</small>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -148,6 +153,11 @@
                                                         <div class="table-container">
                                                             <h4 class="card-head table-text-color">{{post.title}}</h4>
                                                             <p class="table-text-color">{{post.description}}</p>
+                                                            <small class="d-block table-text-color">
+                                                                {% for tag in post.tags.all %}
+                                                                #{{tag }}
+                                                                {%endfor%}
+                                                            </small>
                                                             <small class="table-text-color">{{post.uploaded_date}} · {{post.time}} min read</small>
                                                         </div>
                                                     </div>
@@ -215,9 +225,11 @@
                         <div class="card-body">
                             <h5 class="h5-card-head">Contact Info</h5>
                             <ul class="list-group list-group-flush contactIconContainer">
+                                <li class="list-group-item"><i class="{{phone.icon}} contactIcon"></i> <a href="https://api.whatsapp.com/send?phone=+2{{phone.information}}" target="_blank" class="text-decoration-none">{{phone.information}}</a></li>
                                 {%for contact in contacts%}
-                                <li class="list-group-item"><i class="{{contact.icon}} contactIcon"></i> {{contact.information}}</li>
+                                    <li class="list-group-item"><i class="{{contact.icon}} contactIcon"></i> {{contact.information}}</li>
                                 {%endfor%}
+        
                             </ul>
                         </div>
                     </div>
