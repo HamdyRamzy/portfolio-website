@@ -27,6 +27,14 @@
 	--searchIconColor:#767676;
 	--buttonTextColor: #767676;
 	--shdowColor:rgba(0, 0, 0, 40%);
+	--pageLinkColor: #6c757d;
+	--pageLinkBackgroundColor:#fff;
+	--pageLinkBorderColor: #dee2e6;
+	--pageLinkColor-hover: #252525;
+	--pageLinkBackgroundColor-hover:#e9ecef;
+	--pageLinkColor-active: #fff;
+	--pageLinkBackgroundColor-active:#252525;
+	--pageLinkBorderColor-active: #383838;
 }
 /*End light theme*/
 
@@ -60,7 +68,15 @@
 	--ButtonBorderColor:#4b688d;
 	--searchIconColor:#e4e4e4;
 	--buttonTextColor: #fff;
-	--shdowColor:rgb(31 64 104 / 60%);
+	--shdowColor:rgb(31 64 104 / 60%);	
+	--pageLinkColor: #d9d9d9;
+	--pageLinkBackgroundColor:#2d343f;
+	--pageLinkBorderColor: #242a32;
+	--pageLinkColor-hover: #fff;
+	--pageLinkBackgroundColor-hover: #3e4652;
+	--pageLinkColor-active: #fff;
+	--pageLinkBackgroundColor-active: #4d596a;
+	--pageLinkBorderColor-active: 1px solid #414a58;
 }
 /*End dark theme*/
 
@@ -443,3 +459,30 @@ hr{
 	color: var(--secondaryText);
 }
 /*End form style*/
+
+/*Start pagination style*/
+.page-link {
+	position: relative;
+	display: block;
+	padding: .5rem .75rem;
+	margin-left: -1px;
+	line-height: 1.25;
+	box-shadow:none !important;
+	color: var(--pageLinkColor) !important;
+	background-color: var(--pageLinkBackgroundColor) !important;
+	border: 1px solid var(--pageLinkBorderColor) !important;
+}
+
+.page-link:hover {
+		z-index: 2;
+		text-decoration: none;
+		color: var(--pageLinkColor-hover) !important;
+		background-color: var(--pageLinkBackgroundColor-hover) !important;
+}
+.page-item.active .page-link {
+	z-index: 3;
+	color: var(--pageLinkColor-active) !important;
+	background-color: var(--pageLinkBackgroundColor-active) !important;
+	border-color: 1px solid var(--pageLinkBorderColor-active);
+}
+/*End pagination style*/

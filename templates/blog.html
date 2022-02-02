@@ -34,6 +34,41 @@
           </a>
         {%endfor%}
       </div>
+      <!--Start pagination-->
+      <nav aria-label="..." class="text-center" style="margin-top: 120px;">
+        <ul class="pagination justify-content-center">
+          {% if posts.has_previous %}
+            <li class="page-item">
+              <a class="page-link opened" href="?page={{posts.previous_page_number}}">Previous</a>
+            </li>
+          {% else %}
+            <li class="page-item disabled">
+              <span class="page-link">Previous</span>
+            </li>
+          {% endif %}
+          {% for page_num in posts.paginator.page_range %}
+            {% if posts.number == page_num %}
+              <li class="page-item active">
+                <a class="page-link" href="?page={{page_num}}">{{page_num}}</a><span class="sr-only">(current)</span>
+              </li>
+            {% else %}
+              <li class="page-item">
+                <a class="page-link" href="?page={{page_num}}">{{page_num}}</a>
+              </li>
+            {% endif %}
+          {% endfor %}
+          {% if posts.has_next %}
+            <li class="page-item">
+              <a class="page-link opened" href="?page={{posts.next_page_number}}">Next</a>
+            </li>
+          {% else %}
+            <li class="page-item disabled">
+              <span class="page-link">Next</span>
+            </li>
+          {% endif %}
+        </ul>
+      </nav>
+      <!--End pagination-->
     </section>
   {% endblock %}  
 </body>

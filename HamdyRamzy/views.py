@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from .models import Owner, Contact, SocialMedia, Skill, Language, Certificate, Work, BlogPost, ProjectPost
 
 #Render base page
@@ -31,7 +32,15 @@ def base(request):
 
 def projects(request):
     #Projects page logic
-    projects = ProjectPost.objects.all()
+    all_projects = ProjectPost.objects.all()
+    page = request.GET.get('page', 1)
+    paginator = Paginator(all_projects, 3)
+    try:
+        projects = paginator.page(page)
+    except PageNotAnInteger:
+        projects = paginator.page(1)
+    except EmptyPage:
+        projects = paginator.page(paginator.num_pages)
     context = {
         'projects_page': 'active',
         'projects': projects,
@@ -40,7 +49,16 @@ def projects(request):
     
 def blog(request):
     #Blog page logic
-    posts = BlogPost.objects.all()
+    all_posts = BlogPost.objects.all().order_by('-uploaded_date')
+    page = request.GET.get('page', 1)
+    paginator = Paginator(all_posts, 3)
+    try:
+        posts = paginator.page(page)
+    except PageNotAnInteger:
+        posts = paginator.page(1)
+    except EmptyPage:
+        posts = paginator.page(paginator.num_pages)
+
     context = {
         'blog_page': 'active',
         'posts': posts,
