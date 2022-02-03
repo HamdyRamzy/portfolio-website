@@ -124,7 +124,8 @@ hr{
 	margin-bottom:0;
 }
 .img-container img{
-	width: 100%;
+	width: 100% !important;
+	height: 100% !important;
 }
 /*End body style*/
 
@@ -295,9 +296,8 @@ hr{
 }
 .experienceDescription{
 	margin-left:20px;
-	max-width:220px;
+	
 }
-
 .background-img{
 	height: 350px;
     border-radius: 10px;

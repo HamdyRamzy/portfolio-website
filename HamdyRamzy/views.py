@@ -32,7 +32,7 @@ def base(request):
 
 def projects(request):
     #Projects page logic
-    all_projects = ProjectPost.objects.all()
+    all_projects = ProjectPost.objects.all().order_by('-uploaded_date')
     page = request.GET.get('page', 1)
     paginator = Paginator(all_projects, 3)
     try:
@@ -73,7 +73,7 @@ def project_detail(request, slug):
     #project detail page logic
     project = get_object_or_404(ProjectPost, slug=slug)
     project_tags = project.tags.all()
-    related_projects = ProjectPost.objects.filter(tags__in=project_tags).exclude(slug=project.slug).distinct()[:3]
+    related_projects = ProjectPost.objects.filter(tags__in=project_tags).exclude(slug=project.slug).order_by('-uploaded_date').distinct()[:3]
     context = {
         'projects_page': 'active',
         'project': project,
@@ -86,7 +86,7 @@ def post_detail(request, slug):
     #post detail page logic
     post = get_object_or_404(BlogPost, slug=slug)
     post_tags = post.tags.all()
-    related_posts = BlogPost.objects.filter(tags__in=post_tags).exclude(slug=post.slug).distinct()[:3]
+    related_posts = BlogPost.objects.filter(tags__in=post_tags).exclude(slug=post.slug).order_by('-uploaded_date').distinct()[:3]
     context = {
         'blog_page': 'active',
         'post': post,
