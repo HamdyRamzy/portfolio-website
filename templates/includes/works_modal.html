@@ -1,0 +1,41 @@
+{% load static %}
+<!-- Start works experience Modal -->
+<div class="modal fade" id="works" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-x modal-dialog-centered" role="document">
+    <div class="modal-content modal-bg">
+        <div class="modal-header border-none pb-0">
+            <h5 class="h5-card-head">Experiences</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body pt-0">
+            {%for work in all_works%}
+                <div class="row experienceContainer">
+                    <div class="experienceImageContainer">
+                        {% if work.company_logo %}
+                            <img src="{{work.company_logo.url}}" class="experienceImage" alt="-" height="60" width="60">
+                        {% else %}
+                            <img src="{% static 'images/unknown.png' %}" class="experienceImage" alt="-" height="60" width="60">
+                        {% endif %}
+                    </div>
+                    <div class="col experienceDescription">
+                        
+                        <h6 class="p-margin">{{work.title}}</h6>
+                        <small class="p-margin d-block" >{{work.company_name}} . {{work.employment_type}}</small>
+                        <small class="p-margin d-block" >{{work.start_date}} - {% if work.end_date %} 
+                            {{ work.end_date }} . 12 mon
+                            {%else%}
+                            Present 
+                            {%endif%}</small>
+                    </div>
+                </div>
+                {%if not forloop.last%}
+                    <hr>
+                {% endif %}
+            {%endfor%} 
+        </div>
+    </div>
+    </div>
+</div>
+<!-- End works experience Modal -->

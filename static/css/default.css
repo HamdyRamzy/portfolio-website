@@ -198,6 +198,10 @@ hr{
 	transform: rotate(-25deg);
 	color: var(--navLinkColor);
 }
+.fas {
+	cursor: pointer;
+	color: var(--navLinkColor);
+}
 
 .nav-icon-p{
 	padding: 0px 4px;
@@ -356,6 +360,13 @@ hr{
 .list-group-item{
 	background-color:var(--listBackgroundColor);
 	border-color: var(--listItemBorderColor);
+}
+.dropdown-menu{
+	background-color:var(--listBackgroundColor);
+	border-color: var(--listItemBorderColor);
+}
+.dropdown-item:hover{
+	background-color:var(--listBackgroundColor);
 }
 /*End list style*/
 

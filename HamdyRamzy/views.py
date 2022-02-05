@@ -13,9 +13,11 @@ def base(request):
     all_skills = Skill.objects.all()
     skills_count = Skill.objects.all().count()
     languages = Language.objects.all()
-    works = Work.objects.all()
+    works = Work.objects.all()[:2]
+    all_works = Work.objects.all()
     works_count = Work.objects.all().count()
-    certificates = Certificate.objects.all()
+    certificates = Certificate.objects.all()[:3]
+    all_certificates = Certificate.objects.all()
     certificates_count = Certificate.objects.all().count()
     blogPosts = BlogPost.objects.all().order_by('-uploaded_date')[:2]
     projectPosts = ProjectPost.objects.all().order_by('-uploaded_date')[:2]
@@ -24,6 +26,7 @@ def base(request):
         'owner':owner,
         'links':links,
         'skills':skills,
+        'all_works':all_works,
         'all_skills':all_skills,
         'skills_count':skills_count,
         'contacts':contacts,
@@ -32,6 +35,7 @@ def base(request):
         'works':works,
         'works_count':works_count,
         'certificates':certificates,
+        'all_certificates':all_certificates,
         'certificates_count':certificates_count,
         'blogPosts':blogPosts,
         'projectPosts':projectPosts,

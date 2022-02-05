@@ -1,0 +1,39 @@
+{% load static %}
+
+<!-- Start certificates Modal -->
+<div class="modal fade" id="certificates" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog  modal-dialog-x modal-dialog-centered" role="document">
+    <div class="modal-content modal-bg">
+        <div class="modal-header border-none pb-0">
+            <h5 class="h5-card-head">licenses & certifications</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body pt-0">
+            {%for certificate in all_certificates%}
+                <div class="row experienceContainer">
+                        <div class="experienceImageContainer">
+                            {% if certificate.organization_logo %}
+                                <img src="{{certificate.organization_logo.url}}" class="experienceImage" alt="-" height="60" width="60">
+                            {% else %}
+                                <img src="{% static 'images/unknown.png' %}" class="experienceImage" alt="-" height="60" width="60">
+                            {% endif %}                        </div>
+                        <div class="col experienceDescription">
+                            <h6 class="p-margin">{{certificate.title}}</h6>
+                            <small class="p-margin d-block">{{certificate.issue_organization}}</small>
+                            <small class="p-margin d-block">Issued {{certificate.issue_date}} . No Expiration Date</small>
+                            <small class="p-margin d-block">Credential ID {{certificate.credential_id}}</small>
+                            <small class="p-margin d-block"><a href="{{certificate.credential_url}}">See credential</a></small>
+                        </div>
+                    
+                </div>
+                {%if not forloop.last%}
+                    <hr>
+                {% endif %}
+            {%endfor%}
+        </div>
+    </div>
+    </div>
+</div>
+<!-- End certificates Modal -->
