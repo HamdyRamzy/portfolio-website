@@ -65,6 +65,7 @@
     
     <!-- Start SearchBar Modal -->
     {% include 'includes/search_modal.html' %}
+    {% include 'includes/skills_modal.html' %}
     {% include 'includes/profile_modal.html' %}
     <!-- End SearchBar Modal -->
     
@@ -102,7 +103,7 @@
             
             <!-- Start Body -->
             <div class="row">
-                <div class="col-lg-8 leftSection">
+                <div class="col-lg-8 col-sm-12 leftSection">
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="h5-card-head">About me</h5>
@@ -197,31 +198,43 @@
                                                 {%endif%}</small>
                                         </div>
                                     </div>
+                                    {%if not forloop.last%}
+                                    <hr>
+                                    {% endif %}
                                 {%endfor%} 
                             </div>
+                            {% if works_count < 2 %}
+                            <a type="button" class="text-center seeMoreBtn" data-toggle="modal" data-target="#skills"><span>See all {{skills_count}} skills</span></a>
+                            {% endif %}
                         </div>
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="h5-card-head">licenses & certifications</h5>
+                                {%for certificate in certificates%}
                                 <div class="row experienceContainer">
-                                    {%for certificate in certificates%}
-                                    <div class="experienceImageContainer">
-                                        <img src="{{certificate.organization_logo.url}}" class="experienceImage" alt="-" height="60" width="60">
-                                    </div>
-                                    <div class="col experienceDescription">
-                                        <h6 class="p-margin">{{certificate.title}}</h6>
-                                        <small class="p-margin d-block">{{certificate.issue_organization}}</small>
-                                        <small class="p-margin d-block">Issued {{certificate.issue_date}} . No Expiration Date</small>
-                                        <small class="p-margin d-block">Credential ID {{certificate.credential_id}}</small>
-                                        <small class="p-margin d-block"><a href="{{certificate.credential_url}}">See credential</a></small>
-                                    </div>
-                                    {%endfor%}
+                                        <div class="experienceImageContainer">
+                                            <img src="{{certificate.organization_logo.url}}" class="experienceImage" alt="-" height="60" width="60">
+                                        </div>
+                                        <div class="col experienceDescription">
+                                            <h6 class="p-margin">{{certificate.title}}</h6>
+                                            <small class="p-margin d-block">{{certificate.issue_organization}}</small>
+                                            <small class="p-margin d-block">Issued {{certificate.issue_date}} . No Expiration Date</small>
+                                            <small class="p-margin d-block">Credential ID {{certificate.credential_id}}</small>
+                                            <small class="p-margin d-block"><a href="{{certificate.credential_url}}">See credential</a></small>
+                                        </div>
+                                    
                                 </div>
-                        
+                                {%if not forloop.last%}
+                                <hr>
+                                {% endif %}
+                                {%endfor%}
                             </div>
+                            {% if certificates_count < 3 %}
+                            <a type="button" class="text-center seeMoreBtn" data-toggle="modal" data-target="#skills"><span>See all {{skills_count}} skills</span></a>
+                            {% endif %}
                         </div>
                 </div>
-                <div class="col-lg-4 rightSection">
+                <div class="col-lg-4 col-sm-12 rightSection">
                     <div class="card">
                         <div class="card-body">
                             <h5 class="h5-card-head">Contact Info</h5>
@@ -230,12 +243,11 @@
                                 {%for contact in contacts%}
                                     <li class="list-group-item"><i class="{{contact.icon}} contactIcon"></i> {{contact.information}}</li>
                                 {%endfor%}
-        
                             </ul>
                         </div>
                     </div>
                     <div class="card">
-                        <div class="card-body">
+                        <div class="card-body pb-0">
                             <h5 class="h5-card-head">Skills</h5>
                             <ul class="list-group list-group-flush">
                                 {% for skill in skills %}
@@ -243,6 +255,9 @@
                                 {%endfor%}
                             </ul>
                         </div>
+                        {% if skills_count > 3 %}
+                            <a type="button" class="text-center seeMoreBtn" data-toggle="modal" data-target="#skills"><span>See all {{skills_count}} skills</span></a>
+                        {% endif %}
                     </div>
                     <div class="card">
                         <div class="card-body">

@@ -35,6 +35,9 @@
 	--pageLinkColor-active: #fff;
 	--pageLinkBackgroundColor-active:#252525;
 	--pageLinkBorderColor-active: #383838;
+	--seeMoreBtn:rgba(0,0,0,.125);
+	--listItemBorderColor:rgba(0,0,0,.125);
+	
 }
 /*End light theme*/
 
@@ -57,7 +60,7 @@
 	--modalBackgroundColor:#161b22;
 	--aciveNavLinkColor:#fff;
 	--footerColor:#dcdcdc;
-	--hrColor:#161b22;
+	--hrColor:#21262d;
 	--headIconColor:#e4e4e4;
 	--headIconHoverColor: #161b22;
 	--headIconBackgroundColor:#161b22;
@@ -77,6 +80,8 @@
 	--pageLinkColor-active: #fff;
 	--pageLinkBackgroundColor-active: #4d596a;
 	--pageLinkBorderColor-active: 1px solid #414a58;
+	--seeMoreBtn:#21262d;
+	--listItemBorderColor:#21262d;
 }
 /*End dark theme*/
 
@@ -295,8 +300,7 @@ hr{
 	border-radius: 0.25rem;
 }
 .experienceDescription{
-	margin-left:20px;
-	
+	overflow:auto;
 }
 .background-img{
 	height: 350px;
@@ -334,13 +338,24 @@ hr{
 .see-more{
 	font-weight: 400;
 }
+.seeMoreBtn{
+	padding: 10px;
+	border-radius: 0px 0px 9px 9px;
+	border-top: 1px solid var(--seeMoreBtn);
+}
+.seeMoreBtn:hover{
+	background-color: var(--seeMoreBtn);
+}
+
+
+
 /*End card style*/
 
 
 /*Start list style*/
 .list-group-item{
 	background-color:var(--listBackgroundColor);
-	
+	border-color: var(--listItemBorderColor);
 }
 /*End list style*/
 
