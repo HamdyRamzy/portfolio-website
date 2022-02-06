@@ -106,3 +106,18 @@ def post_detail(request, slug):
     }
     print(post.pk)
     return render(request, 'post_detail.html', context)
+
+#Handle search about bolg posts and projects.
+def search(request):
+    if request.method == 'GET':
+        search_str = request.GET['searchField']
+        posts = BlogPost.objects.filter(title__icontains = search_str).order_by('-uploaded_date')|BlogPost.objects.filter(description__icontains = search_str).order_by('-uploaded_date')
+        projects = ProjectPost.objects.filter(title__icontains = search_str).order_by('-uploaded_date')|ProjectPost.objects.filter(description__icontains = search_str).order_by('-uploaded_date')
+        posts_count = posts.count()        
+        projects_count = projects.count()
+        context = {'posts':posts,
+                'projects':projects,
+                'posts_count':posts_count,
+                'projects_count':projects_count,
+                'search_str':search_str}
+        return render(request, 'search.html', context)    

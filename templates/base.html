@@ -40,21 +40,21 @@
                         {% if request.user.is_superuser %}
                         <li class="nav-item dropdown">
                             <a class="nav-link" href="#" id="userMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            {% if  photo.photo %}
-                                <img src="{{photo.photo.url}}"
-                                class="rounded-circle"
-                                height="35"
-                                width="35"
-                                alt=""
-                                >
-                            {% else %}
-                                <img src="{% static 'images/unknown-person.png'  %}"
-                                class="rounded-circle"
-                                height="35"
-                                width="35"
-                                alt=""
-                                >
-                            {% endif %}
+                                {% if  photo.photo %}
+                                    <img src="{{photo.photo.url}}"
+                                    class="rounded-circle"
+                                    height="35"
+                                    width="35"
+                                    alt=""
+                                    >
+                                {% else %}
+                                    <img src="{% static 'images/unknown-person.png'  %}"
+                                    class="rounded-circle"
+                                    height="35"
+                                    width="35"
+                                    alt=""
+                                    >
+                                {% endif %}
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userMenu"> 
                                 <a  class="dropdown-item" type="button" data-toggle="modal" data-target="#searchBar"><i class="bi bi-search fas nav-icon-p"></i></a>
@@ -319,7 +319,7 @@
                         <a href="{{link.url}}" target="_blank"><i class="{{link.icon}} footer-color footer-icon"></i></a>
                     {%endfor%}
                 </div>
-                <small class="copyright footer-color">&copy; 2020–2021 Hamdy Ramzy</small>
+                <small class="copyright footer-color">&copy; 2020 – 2021 Hamdy Ramzy</small>
             </div>     
         </div>
     </footer>
