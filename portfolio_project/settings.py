@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
+from dotenv import load_dotenv
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -28,7 +30,18 @@ SECRET_KEY = 'django-insecure-x%1r!g21d*wn@@bia+z9k3ue&s15h054t%9rztczu1bk%_i!&&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*', '192.168.1.2', 'localhost', '192.168.57.153']
+CONTACT_EMAIL = 'hamdyramzy34@gmail.com'
+ADMIN_EMAILS = ['hamdy0106454@gmail.com']
+
+# Twilio SendGrid
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'apikey'
+EMAIL_HOST_PASSWORD = os.environ.get('SENDGRID_API_KEY')
+
+
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -46,7 +59,12 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'taggit',
+    'captcha',
 ]
+
+RECAPTCHA_PUBLIC_KEY = '6Lc5DmweAAAAAOxlC7sLYeDFRf8YOJvSlik9h3ne'
+RECAPTCHA_PRIVATE_KEY = '6Lc5DmweAAAAAIPsa3xvFgNFYYElFiaW6pJaKC9p'
+
 
 #Start of CKEditor configrations
 CKEDITOR_UPLOAD_PATH = "uploads/"
@@ -160,7 +178,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'portfolio_project',
         'USER': 'postgres',
-        'PASSWORD': '123123',
+        'PASSWORD': os.environ.get('DATABASE_PASSWORD'),
         'HOST': 'localhost',
         'PORT': '5000',
     }

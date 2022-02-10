@@ -237,8 +237,8 @@ hr{
 	margin-top: 60px;
 }
 .social {
-	width: 40px;
-	height: 40px;
+	width: 35px;
+	height: 35px;
 	margin: 0px 2px;
 	display: inline-block;
 	text-align: center;
@@ -254,8 +254,8 @@ hr{
 }
 
 .head-icon{
-	font-size: 21px;
-	margin-top: 9px;
+	font-size: 18px;
+	margin-top: 8px;
 }
 
 .logo-hvr:hover{
@@ -518,4 +518,9 @@ hr{
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 
+}
+
+.message-container{
+	padding:100px 0px ;
+	text-align: center;
 }

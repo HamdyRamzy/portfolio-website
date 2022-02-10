@@ -6,18 +6,20 @@
 <body>
 {% block body %}
     <div class="mt-5">
-        <div class="card background-header-img" style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url({{project.post_picture.url}});">
-            <div class="card-body text-center c-table">
-                <div class="table-container">
-                    <h2 class="big-size card-head table-text-color">{{project.title}}</h2>
-                    <p class="table-text-color">{{project.description}}</p>
-                    <small class="d-block table-text-color">
-                        {% for tag in project.tags.all %}
-                        #{{tag }}
-                        {%endfor%}
-                    </small>
-                    <small class="table-text-color">{{project.uploaded_date}}</small>
-                </div>
+        <div class="card background-header-img rounded-0" style="background: url({{project.post_picture.url}});">
+        </div>
+        <div class="">
+            <div class="">
+                <h2 class="">{{project.title}}</h2>
+                <small class="">{{project.uploaded_date}}</small> 
+                <span class="font-weight-bold">  ·  </span>
+                <small class="">{{project.time}} min read</small>
+                <span class="font-weight-bold">  ·  </span>
+                <small class="clip">
+                    {% for tag in project.tags.all %}
+                    #{{tag }}
+                    {%endfor%}
+                </small>
             </div>
         </div>
         <div class="mt-5 img-container">
@@ -40,7 +42,9 @@
                                         #{{tag }}
                                         {%endfor%}
                                     </small>
-                                    <small class="table-text-color">{{project.uploaded_date}} · {{project.time}} min read</small>
+                                    <small class="table-text-color">{{project.uploaded_date}}</small>
+                                    <span class="font-weight-bold table-text-color">  ·  </span>
+                                    <small class="table-text-color">{{project.time}} min read</small>
                                 </div>
                             </div>
                         </div>

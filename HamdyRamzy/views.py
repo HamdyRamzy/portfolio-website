@@ -1,6 +1,10 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+
+from HamdyRamzy.forms import ContactMeForm
 from .models import Owner, Contact, SocialMedia, Skill, Language, Certificate, Work, BlogPost, ProjectPost
+from django.core.mail import send_mail
+from django.conf import settings
 
 #Render base page
 def base(request):
@@ -79,7 +83,25 @@ def blog(request):
 
 def contact(request):
     #Contact page logic
-    return render(request, 'contact.html', {'contact_page': 'active'})  
+    if request.method == 'POST':
+    
+        form = ContactMeForm(request.POST)
+        if form.is_valid():
+            form.save()
+            email_subject = f'New contact from: {form.cleaned_data["email"]} subject: {form.cleaned_data["subject"]}'
+            email_message = form.cleaned_data['message']
+            send_mail(email_subject, email_message, settings.CONTACT_EMAIL, settings.ADMIN_EMAILS)
+            return redirect('sent')
+        else:
+            context = {'form': form,
+            'contact_page': 'active'
+            }
+            return render(request, 'contact.html', context)     
+    form = ContactMeForm()
+    context = {'form': form,
+    'contact_page': 'active'
+    }
+    return render(request, 'contact.html', context)  
 
 def project_detail(request, slug):
     #project detail page logic
@@ -121,3 +143,9 @@ def search(request):
                 'projects_count':projects_count,
                 'search_str':search_str}
         return render(request, 'search.html', context)    
+
+
+
+def sent(request):
+    
+    return render(request, 'sent.html')            
