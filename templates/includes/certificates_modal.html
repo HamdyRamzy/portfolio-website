@@ -12,21 +12,20 @@
         </div>
         <div class="modal-body pt-0">
             {%for certificate in all_certificates%}
-                <div class="row experienceContainer">
+                <div class="experienceContainer" style="display: flex !important;">
                         <div class="experienceImageContainer">
                             {% if certificate.organization_logo %}
                                 <img src="{{certificate.organization_logo.url}}" class="experienceImage" alt="-" height="60" width="60">
                             {% else %}
                                 <img src="{% static 'images/unknown.png' %}" class="experienceImage" alt="-" height="60" width="60">
                             {% endif %}                        </div>
-                        <div class="col experienceDescription">
+                        <div class="experienceDescription ml-2">
                             <h6 class="p-margin">{{certificate.title}}</h6>
                             <small class="p-margin d-block">{{certificate.issue_organization}}</small>
                             <small class="p-margin d-block">Issued {{certificate.issue_date}} . No Expiration Date</small>
                             <small class="p-margin d-block">Credential ID {{certificate.credential_id}}</small>
                             <small class="p-margin d-block"><a href="{{certificate.credential_url}}">See credential</a></small>
                         </div>
-                    
                 </div>
                 {%if not forloop.last%}
                     <hr>

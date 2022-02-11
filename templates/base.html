@@ -3,21 +3,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="You can find everything about me, my previous work, and contact information here.">
 	<title>{%block title%}Hamdy Ramzy{%endblock%}</title>
 	<link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&family=Russo+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css" integrity="sha384-xxzQGERXS00kBmZW/6qxqJPyxW3UR0BPsL4c8ILaIWXva5kFi7TxkIIaMiKtqV1Q" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-    <link rel="shortcut icon" type="../static/images/favicon.png" href="../static/images/favicon.png">
+    <link rel="shortcut icon" type="" href="{% static 'images/favicon.png' %} ">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" type="text/css" href="{% static 'css/hover-min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/github-calendar-responsive.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/default.css' %}">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+
+
 </head>
 
 <body>
@@ -201,7 +202,7 @@
                             <div class="card-body">
                                 <h5 class="h5-card-head">Work Experience</h5>
                                 {%for work in works%}
-                                    <div class="row experienceContainer">
+                                    <div class="experienceContainer" style="display: flex !important;">
                                         <div class="experienceImageContainer">
                                             {% if work.company_logo %}
                                                 <img src="{{work.company_logo.url}}" class="experienceImage" alt="-" height="60" width="60">
@@ -209,7 +210,7 @@
                                                 <img src="{% static 'images/unknown.png' %}" class="experienceImage" alt="-" height="60" width="60">
                                             {% endif %}
                                         </div>
-                                        <div class="col experienceDescription">
+                                        <div class="experienceDescription ml-2">
                                             
                                             <h6 class="p-margin">{{work.title}}</h6>
                                             <small class="p-margin d-block" >{{work.company_name}} . {{work.employment_type}}</small>
@@ -233,7 +234,7 @@
                             <div class="card-body">
                                 <h5 class="h5-card-head">licenses & certifications</h5>
                                 {%for certificate in certificates%}
-                                    <div class="row experienceContainer">
+                                    <div class= "experienceContainer" style="display: flex !important;">
                                             <div class="experienceImageContainer">
                                                 {% if certificate.organization_logo %}
                                                     <img src="{{certificate.organization_logo.url}}" class="experienceImage" alt="-" height="60" width="60">
@@ -241,7 +242,7 @@
                                                     <img src="{% static 'images/unknown.png' %}" class="experienceImage" alt="-" height="60" width="60">
                                                 {% endif %}
                                             </div>
-                                            <div class="col experienceDescription">
+                                            <div class="experienceDescription ml-2">
                                                 <h6 class="p-margin">{{certificate.title}}</h6>
                                                 <small class="p-margin d-block">{{certificate.issue_organization}}</small>
                                                 <small class="p-margin d-block">Issued {{certificate.issue_date}} . No Expiration Date</small>
@@ -329,10 +330,10 @@
     <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
     <script src="{% static 'js/popper.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script>
     <script src="{% static 'js/top-button.js' %}"></script>   
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init();
-    </script>
+    <script>AOS.init();</script>
+
     <!-- End js files -->
 </html>

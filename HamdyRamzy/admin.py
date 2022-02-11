@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import  Owner, Contact, SocialMedia, Skill, Language, Certificate, Work, BlogPost, ProjectPost, ContactMe
+from .models import  Owner, Contact, SocialMedia, Skill, Language, Certificate, Work, BlogPost, ProjectPost, ContactMe, Visitor
 
 admin.site.register(Owner)
 admin.site.register(Contact)
@@ -13,3 +13,4 @@ admin.site.register(Work)
 admin.site.register(BlogPost)
 admin.site.register(ProjectPost)
 admin.site.register(ContactMe)
+admin.site.register(Visitor)

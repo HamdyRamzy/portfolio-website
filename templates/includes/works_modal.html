@@ -11,7 +11,7 @@
         </div>
         <div class="modal-body pt-0">
             {%for work in all_works%}
-                <div class="row experienceContainer">
+                <div class="experienceContainer" style="display: flex !important;">
                     <div class="experienceImageContainer">
                         {% if work.company_logo %}
                             <img src="{{work.company_logo.url}}" class="experienceImage" alt="-" height="60" width="60">
@@ -19,7 +19,7 @@
                             <img src="{% static 'images/unknown.png' %}" class="experienceImage" alt="-" height="60" width="60">
                         {% endif %}
                     </div>
-                    <div class="col experienceDescription">
+                    <div class="experienceDescription ml-2">
                         
                         <h6 class="p-margin">{{work.title}}</h6>
                         <small class="p-margin d-block" >{{work.company_name}} . {{work.employment_type}}</small>

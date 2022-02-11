@@ -6,7 +6,7 @@
 <body>
 {% block body %}
     <div class="mt-5">
-        <div class="card background-header-img rounded-0" style="background: url({{project.post_picture.url}});">
+        <div class="card background-detail-header-img rounded-0" style="background: url({{project.post_picture.url}});">
         </div>
         <div class="">
             <div class="">
@@ -17,7 +17,7 @@
                 <span class="font-weight-bold">  ·  </span>
                 <small class="clip">
                     {% for tag in project.tags.all %}
-                    #{{tag }}
+                        #{{tag }}
                     {%endfor%}
                 </small>
             </div>
@@ -55,7 +55,5 @@
     </div>
     
 {% endblock %}  
-
-
 </body>
 </html>
