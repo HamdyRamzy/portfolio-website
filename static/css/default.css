@@ -309,6 +309,7 @@ hr{
     border-radius: 10px;
     background-size: cover !important;
     background-position: 50% 50% !important;
+	background-repeat: no-repeat;
 	cursor: pointer;
 }
 .card-shadow:hover{
@@ -520,6 +521,19 @@ hr{
 	background: -webkit-linear-gradient(-70deg,#9867f0 0%,#ed4e50 100%);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
+	font-weight: bold;
 
 }
-
+.message-container{
+	padding:100px 0px ;
+	text-align: center;
+}
+.section-container{
+	text-align: center;
+}
+.section-br{
+	border-right: 2px solid var(--seeMoreBtn) ;
+}
+.section-p{
+	padding: 2.25rem;
+}

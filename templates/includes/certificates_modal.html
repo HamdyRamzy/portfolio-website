@@ -1,7 +1,7 @@
 {% load static %}
 
 <!-- Start certificates Modal -->
-<div class="modal fade" id="certificates" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade pr-0" id="certificates" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog  modal-dialog-x modal-dialog-centered" role="document">
     <div class="modal-content modal-bg">
         <div class="modal-header border-none pb-0">
@@ -24,7 +24,7 @@
                             <small class="p-margin d-block">{{certificate.issue_organization}}</small>
                             <small class="p-margin d-block">Issued {{certificate.issue_date}} . No Expiration Date</small>
                             <small class="p-margin d-block">Credential ID {{certificate.credential_id}}</small>
-                            <small class="p-margin d-block"><a href="{{certificate.credential_url}}">See credential</a></small>
+                            <small class="p-margin d-block"><a href="{{certificate.credential_url}}" target="_blank">See credential</a></small>
                         </div>
                 </div>
                 {%if not forloop.last%}

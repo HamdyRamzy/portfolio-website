@@ -154,7 +154,7 @@ class ContactMe(models.Model):
         return self.email        
 
 class Visitor(models.Model):
-    views = models.PositiveIntegerField(default=0)    
-    def __int__(self):
-        return self.views
+    viewer = models.TextField(default='0')    
+    def __str__(self):
+        return self.viewer
     

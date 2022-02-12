@@ -12,18 +12,21 @@ def base(request):
     links = SocialMedia.objects.all()
     contacts = Contact.objects.all().exclude(name='phone')
     phone = Contact.objects.get(name='phone')
-    skills = Skill.objects.all()[:3]
+    skills = Skill.objects.all()[:4]
     all_skills = Skill.objects.all()
     skills_count = Skill.objects.all().count()
     languages = Language.objects.all()
-    works = Work.objects.all()[:2]
+    works = Work.objects.all()[:3]
     all_works = Work.objects.all()
     works_count = Work.objects.all().count()
     certificates = Certificate.objects.all()[:3]
     all_certificates = Certificate.objects.all()
     certificates_count = Certificate.objects.all().count()
     blogPosts = BlogPost.objects.all().order_by('-uploaded_date')[:2]
+    blogPosts_count = BlogPost.objects.all().count()
     projectPosts = ProjectPost.objects.all().order_by('-uploaded_date')[:2]
+    projectPosts_count = ProjectPost.objects.all().count()
+
     context = {
         'home_page': 'active',
         'owner':owner,
@@ -42,6 +45,8 @@ def base(request):
         'certificates_count':certificates_count,
         'blogPosts':blogPosts,
         'projectPosts':projectPosts,
+        'blogPosts_count':blogPosts_count,
+        'projectPosts_count':projectPosts_count,
     }
     return render(request, 'base.html', context)
 
@@ -142,14 +147,30 @@ def search(request):
 
 
 
-def sent(request):
-    visitor = Visitor.objects.all().first()
-    if not request.session.get('session_key',False):
-            visitor.views +=1
-            visitor.save()
-            request.session['session_key'] = True
-    
-    context = {'visitor': visitor
-            }
-        
-    return render(request, 'sent.html', context)            
+def sent(request):        
+    return render(request, 'sent.html')        
+
+
+
+def visitors(request):
+    visitors_count = Visitor.objects.all().count()
+    def get_client_ip(request):
+        x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+        if x_forwarded_for:
+            ip = x_forwarded_for.split(',')[-1].strip()
+        else:
+            ip = request.META.get('REMOTE_ADDR')
+        return ip
+    ip = get_client_ip(request)
+    user = Visitor(viewer=ip)
+    visitor = Visitor.objects.filter(viewer=ip)
+    if not visitor:
+        user.save()      
+    context = {'visitors_count': visitors_count,
+            }    
+    return context  
+
+
+
+
+
