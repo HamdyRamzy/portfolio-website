@@ -8,4 +8,4 @@ class ContactMeForm(ModelForm):
     captcha = ReCaptchaField(widget=ReCaptchaV2Checkbox)
     class Meta:
         model = ContactMe
-        fields = '__all__'
+        fields = ['email', 'subject', 'message']

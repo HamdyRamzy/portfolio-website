@@ -14,6 +14,8 @@ class Owner(models.Model):
     birthday = models.DateField(null=True, blank=True, auto_now=False, auto_now_add=False)
     photo = models.ImageField(null=True, blank=True, upload_to='my photos/%y/%m/%d')
     updated_date = models.DateTimeField(null=True, blank=True)
+    resume = models.FileField(null=True, blank=True, upload_to ='resume/%y/%m/%d')
+
     
     def __str__(self):
         return self.name
@@ -115,6 +117,7 @@ class BlogPost(models.Model):
     uploaded_date = models.DateField(null=True, blank=True)
     tags = TaggableManager()
     time = models.PositiveIntegerField(null=True, blank=True)
+    views = models.PositiveIntegerField(default=0) 
     slug = models.SlugField(null=True, blank=True, max_length=255, unique=True)
 
     def save(self, *args, **kwargs):
@@ -135,6 +138,7 @@ class ProjectPost(models.Model):
     uploaded_date = models.DateField(null=True, blank=True)
     tags = TaggableManager()    
     time = models.PositiveIntegerField(null=True, blank=True)
+    views = models.PositiveIntegerField(default=0) 
     slug = models.SlugField(null=True, blank=True, max_length=255, unique=True)
 
     def save(self, *args, **kwargs):
@@ -145,16 +149,35 @@ class ProjectPost(models.Model):
     def __str__(self):
         return self.title
 
+
+class Project_image(models.Model):
+    project = models.ForeignKey(ProjectPost, related_name='project', on_delete=models.CASCADE)
+    picture = models.ImageField(null=True, upload_to='project pictures/%y/%m/%d')
+    description = models.CharField(null=True, blank=True, max_length=1000)
+    def __str__(self):
+        return self.description
+
+
+
+
 class ContactMe(models.Model):
     email = models.EmailField()
     subject = models.CharField(max_length=255)
     message = models.TextField()
+    sender = models.TextField(default='None')
+
 
     def __str__(self):
         return self.email        
 
 class Visitor(models.Model):
-    viewer = models.TextField(default='0')    
+    viewer = models.TextField(default='None')
+    last_visit = models.DateTimeField(null=True, blank=True)    
     def __str__(self):
         return self.viewer
-    
+
+
+class SiteInfo(models.Model):
+    init_date = models.DateField(null=True, blank=True)
+    def __int__(self):
+        return self.init_date

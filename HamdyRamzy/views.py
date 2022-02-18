@@ -2,7 +2,9 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
 from HamdyRamzy.forms import ContactMeForm
-from .models import Owner, Contact, SocialMedia, Skill, Language, Certificate, Work, BlogPost, ProjectPost, Visitor
+from .models import Owner, Contact, SocialMedia, Skill, Language, Certificate, Work, BlogPost, ProjectPost, Visitor, SiteInfo, Project_image
+from django.utils import timezone
+from .utils import get_ip_address
 
 
 #Render base page
@@ -26,6 +28,7 @@ def base(request):
     blogPosts_count = BlogPost.objects.all().count()
     projectPosts = ProjectPost.objects.all().order_by('-uploaded_date')[:2]
     projectPosts_count = ProjectPost.objects.all().count()
+    site = SiteInfo.objects.all().first()
 
     context = {
         'home_page': 'active',
@@ -47,6 +50,7 @@ def base(request):
         'projectPosts':projectPosts,
         'blogPosts_count':blogPosts_count,
         'projectPosts_count':projectPosts_count,
+        'site':site,
     }
     return render(request, 'base.html', context)
 
@@ -87,20 +91,28 @@ def blog(request):
 
 def contact(request):
     #Contact page logic
+    links = SocialMedia.objects.all().exclude(name='github')
+    phone = Contact.objects.get(name='phone')
     if request.method == 'POST':
-    
         form = ContactMeForm(request.POST)
+        sender = get_ip_address(request)
         if form.is_valid():
-            form.save()
+            message = form.save(commit=False)
+            message.sender = sender
+            message.save()
             return redirect('sent')
         else:
             context = {'form': form,
-            'contact_page': 'active'
+            'contact_page': 'active',
+            'links':links,
+            'phone':phone,
             }
             return render(request, 'contact.html', context)     
     form = ContactMeForm()
     context = {'form': form,
-    'contact_page': 'active'
+    'contact_page': 'active',
+    'links':links,
+    'phone':phone,
     }
     return render(request, 'contact.html', context)  
 
@@ -109,10 +121,17 @@ def project_detail(request, slug):
     project = get_object_or_404(ProjectPost, slug=slug)
     project_tags = project.tags.all()
     related_projects = ProjectPost.objects.filter(tags__in=project_tags).exclude(slug=project.slug).order_by('-uploaded_date').distinct()[:3]
+    project_images = Project_image.objects.filter(project__slug=slug)
+    session_key = 'view_poject_{}'.format(project.slug)
+    if not request.session.get(session_key,False):
+        project.views +=1
+        project.save()
+        request.session[session_key] = True
     context = {
         'projects_page': 'active',
         'project': project,
         'related_projects':related_projects,
+        'project_images':project_images,
     }
     return render(request, 'project_detail.html', context)  
     
@@ -122,6 +141,11 @@ def post_detail(request, slug):
     post = get_object_or_404(BlogPost, slug=slug)
     post_tags = post.tags.all()
     related_posts = BlogPost.objects.filter(tags__in=post_tags).exclude(slug=post.slug).order_by('-uploaded_date').distinct()[:3]
+    session_key = 'view_post_{}'.format(post.slug)
+    if not request.session.get(session_key,False):
+        post.views +=1
+        post.save()
+        request.session[session_key] = True
     context = {
         'blog_page': 'active',
         'post': post,
@@ -148,24 +172,23 @@ def search(request):
 
 
 def sent(request):        
+
     return render(request, 'sent.html')        
 
 
 
 def visitors(request):
     visitors_count = Visitor.objects.all().count()
-    def get_client_ip(request):
-        x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
-        if x_forwarded_for:
-            ip = x_forwarded_for.split(',')[-1].strip()
-        else:
-            ip = request.META.get('REMOTE_ADDR')
-        return ip
-    ip = get_client_ip(request)
+    ip = get_ip_address(request)
     user = Visitor(viewer=ip)
-    visitor = Visitor.objects.filter(viewer=ip)
+    visitor = Visitor.objects.filter(viewer=ip).first()
     if not visitor:
-        user.save()      
+        user.last_visit =timezone.now()
+        user.save()
+    else:
+        visitor.last_visit = timezone.now()
+        visitor.save()
+
     context = {'visitors_count': visitors_count,
             }    
     return context  

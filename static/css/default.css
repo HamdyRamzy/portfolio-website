@@ -3,8 +3,8 @@
 	--navbarBackgroundColor:#fff;
 	--bodyColor:#f3f2ef2e;
 	--headerBackgroundColor:#fff;
-	--mainText:#353535;
-	--secondaryText:#4b5156;
+	--mainText:#000;
+	--secondaryText:#111;
 	--topBarBacgroundColor:#778492;
 	--cardBackgroundColor:#fff;
 	--listBackgroundColor:#fff;
@@ -16,10 +16,14 @@
 	--aciveNavLinkColor:#000;
 	--footerColor:#dcdcdc;
 	--hrColor:#cccccc;
-	--headIconColor: #353535;
+	--headIconColor: #000000;
 	--headIconHoverColor: #fff;
-	--headIconBackgroundColor:#fff;
-	--headIconBorderColor:	#353535;
+	--headIconBorderColor:	#000000;
+
+	--resumeBtnColor: #000000;
+	--resumeBtnHoverColor: #fff;
+	--resumeBtnBorderColor:	#000000;
+
 	--formBorderColor: rgba(0,0,0,.125);
 	--formBackgroundColor: #fff;
 	--ButtonBackgroundColor:white;
@@ -37,6 +41,8 @@
 	--pageLinkBorderColor-active: #383838;
 	--seeMoreBtn:rgba(0,0,0,.125);
 	--listItemBorderColor:rgba(0,0,0,.125);
+	--contactIconColor: #474747;
+	--contactIconHoverColor: #000;
 	
 }
 /*End light theme*/
@@ -63,8 +69,12 @@
 	--hrColor:#21262d;
 	--headIconColor:#e4e4e4;
 	--headIconHoverColor: #161b22;
-	--headIconBackgroundColor:#161b22;
 	--headIconBorderColor:#e4e4e4;
+
+	--resumeBtnColor:#e4e4e4;
+	--resumeBtnHoverColor: #161b22;
+	--resumeBtnBorderColor:#e4e4e4;
+
 	--formBorderColor: #4b688d;
 	--formBackgroundColor: #1f2936;
 	--ButtonBackgroundColor:#4b688d;
@@ -82,6 +92,8 @@
 	--pageLinkBorderColor-active: 1px solid #414a58;
 	--seeMoreBtn:#21262d;
 	--listItemBorderColor:#21262d;
+	--contactIconColor: #a8a8a8;
+	--contactIconHoverColor: #fff;
 }
 /*End dark theme*/
 
@@ -180,6 +192,9 @@ hr{
 .modal-dialog-x {
     max-width: 800px !important;
 }
+.modal-dialog-xx {
+    max-width: 1000px !important;
+}
 .modal-bg{
 	background-color: var(--modalBackgroundColor);
 }
@@ -198,7 +213,7 @@ hr{
 	transform: rotate(-25deg);
 	color: var(--navLinkColor);
 }
-.fas {
+.pointer {
 	cursor: pointer;
 	color: var(--navLinkColor);
 }
@@ -227,10 +242,10 @@ hr{
     margin-bottom: 20px;
     border: 1px solid rgba(0,0,0,.125);
 }
-.info{
-	margin-top: 40px;
+.infoContainer{
+	padding-top: 20px;
 }
-.themesControler{
+.resumeControler{
 	margin-left:auto;
 }
 .theme-btn{
@@ -252,11 +267,23 @@ hr{
 	color: var(--headIconHoverColor);
 	
 }
+.contact-social{
+	margin-right: 11px;
+	display: inline-block;
+	color: var(--contactIconColor);
+}
+.contact-social:hover{
+	color: var(--contactIconHoverColor);
+}
+.contact-icon{
+	font-size: 30px;
+}
 
 .head-icon{
 	font-size: 18px;
 	margin-top: 8px;
 }
+
 
 .logo-hvr:hover{
 	color:#fff;
@@ -281,8 +308,10 @@ hr{
 	display: table;
 }
 .table-container{
+
 	display: table-cell;
-	vertical-align: middle;
+    text-align: center;
+    vertical-align: middle;
 }
 .h5-card-head{
 	margin-bottom:20px;
@@ -320,6 +349,10 @@ hr{
     font-size: 2.5rem;
 }
 
+.bigger-size{
+    font-size: 3.5rem;
+}
+
 .font-size-18{
 	font-size: 18px;
 }
@@ -336,10 +369,11 @@ hr{
     border-radius: 10px;
     background-size: cover !important;
     background-position: 50% 50% !important;
+	background-repeat: no-repeat;
 	cursor: pointer;
 }
 .background-detail-header-img{
-	min-height: 400px;
+	min-height: 450px;
     background-size: cover !important;
     background-position: 50% 50% !important;
 }
@@ -537,3 +571,47 @@ hr{
 .section-p{
 	padding: 2.25rem;
 }
+.margin-top{
+	margin-top: 55px;
+}
+.margin-container-detail{
+	margin-top: 70px;
+}
+
+
+
+.post-header{
+	max-width: 900px !important;
+	margin-top: 150px !important;
+}
+.post-content{
+	max-width: 900px !important;
+}
+
+.nav-collapse-btn:focus{
+	outline: none !important;
+}
+
+.modal-open {
+    padding-right: 0px !important;
+}
+.modal {
+    padding-right: 0px !important;
+}
+.icon-sharing{
+	font-size: 25px;
+}
+
+.resume-btn-container{
+	padding: 20px 0px;
+}
+.resume-btn{
+	border: 1px solid var(--resumeBtnBorderColor);
+    font-weight: 600;
+    color: var(--resumeBtnColor);
+}
+.resume-btn:hover{
+	background-color: var(--resumeBtnBorderColor);
+	color: var(--resumeBtnHoverColor);
+}
+

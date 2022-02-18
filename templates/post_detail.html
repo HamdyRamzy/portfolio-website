@@ -1,62 +1,106 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load social_share %}
 
     {%block title%}Hamdy Ramzy - {{post.title}}{%endblock%}
-
+    {% block extra_head_tags %}
+        <meta property="og:site_name" content="Hamdy Ramzy">
+        <meta property="og:type" content="article"> 
+        <meta property="og:title" content="{{post.title}}">
+        <meta property="og:description" content="{{post.description}}">
+        <meta name="og:url" content="https://4081-41-43-137-177.ngrok.io/blog/{{post.slug}}">
+        <meta property="og:image" itemprop="image" content="{{post.post_picture.url}}">
+        
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site_name" content="Hamdy Ramzy">
+        <meta name="twitter:type" content="article">    
+        <meta name="twitter:title" content="{{post.title}}">
+        <meta name="twitter:description" content="{{post.description}}">
+        <meta name="twitter:url" content="https://4081-41-43-137-177.ngrok.io/blog/{{post.slug}}">
+        <meta name="twitter:image" content="https://4081-41-43-137-177.ngrok.io{{post.post_picture.url}}">
+        
+        <meta property="og:image:width" content="2000">
+        <meta property="og:image:height" content="1056">
+    {% endblock %}
 <body>
 {% block body %}
-    <div class="mt-5">
-        <div class="card background-detail-header-img rounded-0" style="background: url({{post.post_picture.url}});">
-
-        </div>
-
+    <div class="container post-header">
         <div class="">
             <div class="">
-                <h2 class="">{{post.title}}</h2>
-                <small class="">{{post.uploaded_date}}</small> 
-                <span class="font-weight-bold">  ·  </span>
-                <small class="">{{post.time}} min read</small>
-                <span class="font-weight-bold">  ·  </span>
-                <small class="clip">
-                    {% for tag in post.tags.all %}
-                    #{{tag }}
-                    {%endfor%}
-                </small>
+                <div class="text-center">
+                    <p class="d-inline">{{post.uploaded_date}}</p> 
+                    <p class="font-weight-bold d-inline">  ·  </p>
+                    <p class="d-inline">{{post.time}} min read</p>
+                    <p class="font-weight-bold d-inline">  ·  </p>
+                    <p class="d-inline">{{post.views}} views</p>
+                </div>
+                <h2 class="bigger-size text-center">{{post.title}}</h2>
+                <div class="text-center">
+                    <small class="clip">
+                        {% for tag in post.tags.all %}
+                        #{{tag }}
+                        {%endfor%}
+                    </small>
+                </div>
             </div>
         </div>
+    </div>
+        <div class="card background-detail-header-img rounded-0 margin-container-detail" style="background: url({{post.post_picture.url}});">
+
+        </div>
+
+
+    <div class="container post-content">
+
 
         <div class="mt-5 img-container">
             {{post.content|safe}}
         </div>
     </div>
-    <div class="mt-5">
-        <h2 class="">Related posts</h2>
-        <div class="row mt-5">
-            {%for post in related_posts%}
-                <div class="col-lg-4">
-                    <a href="{% url 'post-detail' post.slug %}" class="text-decoration-none">    
-                        <div class="card background-header-img hvr-bob card-shadow" style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url({{post.post_picture.url}});">
-                            <div class="card-body text-center c-table">
-                                <div class="table-container">
-                                    <h4 class="card-head table-text-color">{{post.title}}</h4>
-                                    <p class="table-text-color">{{post.description}}</p>
-                                    <small class="d-block table-text-color">
-                                        {% for tag in post.tags.all %}
-                                        #{{tag }}
-                                        {%endfor%}
-                                    </small>
-                                    <small class="table-text-color">{{post.uploaded_date}}</small>
-                                    <span class="table-text-color font-weight-bold">  ·  </span>
-                                    <small class="table-text-color">{{post.time}} min read</small>
+    <div class="container">
+        <h4 class="text-center mt-5 shares">Share article</h4>
+
+        <div class="text-center mt-3" style="display: flex; justify-content:center">
+            {% post_to_facebook post.get_absolte_uri '<i class="fab fa-facebook icon-sharing mr-4"></i>' %}
+            {% post_to_linkedin post.get_absolte_uri  %}
+            {% post_to_twitter "{{post.title}}"  post.get_absolte_uri '<i class="fab fa-twitter icon-sharing ml-4"></i>' %}
+        </div>
+        <div class="mt-5">
+            <h2 class="text-center">Related posts</h2>
+            <div class="row mt-5">
+                {%for post in related_posts%}
+                    <div class="col-lg-4">
+                        <a href="{% url 'post-detail' post.slug %}" class="text-decoration-none">    
+                            <div class="card background-header-img hvr-bob card-shadow" style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url({{post.post_picture.url}});">
+                                <div class="card-body text-center c-table">
+                                    <div class="table-container">
+                                        <h4 class="card-head table-text-color">{{post.title}}</h4>
+                                        <p class="table-text-color">{{post.description}}</p>
+                                        <small class="d-block table-text-color">
+                                            {% for tag in post.tags.all %}
+                                            #{{tag }}
+                                            {%endfor%}
+                                        </small>
+                                        <small class="table-text-color">{{post.uploaded_date}}</small>
+                                        <span class="table-text-color font-weight-bold">  ·  </span>
+                                        <small class="table-text-color">{{post.time}} min read</small>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </a>
-                </div>
-            {%endfor%}
+                        </a>
+                    </div>
+                {%endfor%}
+            </div>
         </div>
+
+    </div>    
+
+        
     </div>
-    
+
+
+
+
 {% endblock %}  
 
 

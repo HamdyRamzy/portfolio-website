@@ -1,11 +1,29 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="You can find everything about me, my previous work, and contact information here.">
-	<title>{%block title%}Hamdy Ramzy{%endblock%}</title>
+    {% block extra_head_tags %}
+        <meta property="og:site_name" content="Hamdy Ramzy">
+        <meta property="og:title" content="Hamdy Ramzy">
+        <meta property="og:description" content="You can find everything about me, my previous work, and contact information here.">
+        <meta name="og:url" content="https://4081-41-43-137-177.ngrok.io/">
+        <meta property="og:image" content="{{owner.photo.url}}">
+        
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site_name" content="Hamdy Ramzy">  
+        <meta name="twitter:title" content="Hamdy Ramzy">
+        <meta name="twitter:description" content="You can find everything about me, my previous work, and contact information here.">
+        <meta name="twitter:url" content="https://5150-197-62-232-241.ngrok.io/">
+        <meta name="twitter:image" content="https://5150-197-62-232-241.ngrok.io{{owner.photo.url}}">
+        
+        <meta property="og:image:width" content="2000">
+        <meta property="og:image:height" content="1056">
+    {% endblock %}
+    <title>{%block title%}Hamdy Ramzy{%endblock%}</title>
 	<link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&family=Russo+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css" integrity="sha384-xxzQGERXS00kBmZW/6qxqJPyxW3UR0BPsL4c8ILaIWXva5kFi7TxkIIaMiKtqV1Q" crossorigin="anonymous">
@@ -18,8 +36,6 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/default.css' %}">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-
-
 </head>
 
 <body>
@@ -27,7 +43,7 @@
     <nav class="navbar navbar-expand-md navbar-light bg-light fixed-nav" id="navbarfixed">
         <div class="container">
             <a class="navbar-brand mt-2 brand-logo" href="/"><h4>HAMDY</h4></a>
-            <button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbar" data-toggle="collapse" type="button">
+            <button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler nav-collapse-btn" data-target="#navbar" data-toggle="collapse" type="button">
                 <span class=""><i class="bi bi-list font-size-25"></i></span>
             
             </button>
@@ -59,9 +75,9 @@
                                 {% endif %}
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userMenu"> 
-                                <a  class="dropdown-item" type="button" data-toggle="modal" data-target="#searchBar"><i class="bi bi-search fas nav-icon-p"></i></a>
+                                <a  class="dropdown-item" type="button" data-toggle="modal" data-target="#searchBar"><i class="bi bi-search pointer nav-icon-p"></i></a>
                                 <a class="dropdown-item"><i id="icon" class="fass bi bi-brightness-low-fill nav-icon-p font-size-25 dark-button"></i></a>
-                                <a class="dropdown-item ml-auto font-size-18" href="/logout"><i class="bi bi-box-arrow-right nav-icon-p fas"></i></a>
+                                <a class="dropdown-item ml-auto font-size-18" href="/logout"><i class="bi bi-box-arrow-right nav-icon-p pointer"></i></a>
 
                             </div>                             
 
@@ -88,13 +104,14 @@
     <!-- Start scroll top button -->
     <a id="button" class="shadow hvr-bob"><i class="fas fa-chevron-up top-button"></i></a>
     <!-- End scroll top button -->
-    <div class="container margin-container">
-        {% block body %}
+ 
+    {% block body %}
+    <div class="container margin-container">   
         <section class="mainSection">
             <!-- Start headr -->
             <div class="HeadSection">
-                <div class="row">
-                    <div class="col-lg-3 col-md-4 col-sm-12 photo ">
+                <div class="row align-items-center">
+                    <div class="col-lg-3 col-sm-12 photo ">
                         <a type="button" class="" data-toggle="modal" data-target="#pictureModal">
                             {% if photo.photo %}
                                 <img src="{{owner.photo.url}}" class="rounded-circle" alt="HamdyRamzy" height="200" width="200">
@@ -103,7 +120,7 @@
                             {% endif %}
                         </a>
                     </div>
-                    <div class="col-lg-4 col-md-5 col-sm-12 infoContainer">
+                    <div class="col-lg-4  col-sm-12 infoContainer">
                         <div class="info">
                             <h2>{{owner.name}}</h2>
                             <p>{{owner.bio}}</p>
@@ -114,8 +131,13 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-md-4 col-sm-12 themesControler">
-                        
+                    <div class="col-lg-4  col-sm-12 resumeControler">
+                        <div class="resume-btn-container">
+                            <a href="{{owner.resume.url}}" class="btn p-2 resume-btn shadow-none" download="Hamdy's Resume">
+                                DOWNLOAD RESUME
+                              </a>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -303,35 +325,35 @@
         </section>
         <div class="card">
             <div class="row section-p card-body">
-                <div class="col p-0">
-                    <div class="section-container section-br">
-                        <div class="">
+                <div class="col  section-br p-0">
+                    <div class="section-container">
+                        <div class="p-1">
                             <h2>{{visitors_count}}</h2>
-                            <small class="d-block">VISITOR</small>
+                            <small class="d-block">{{'unique visitors'|upper}}</small>
                         </div>
                     </div>
                 </div>    
-                <div class="col p-0">
-                    <div class="section-container section-br">
-                        <div class="">
+                <div class="col  section-br p-0">
+                    <div class="section-container">
+                        <div class="p-1">
                             <h2>{{projectPosts_count}}</h2>
-                            <small class="d-block">PROJECTS</small>
+                            <small class="d-block">{{'my projects'|upper}}</small>
                         </div>
                     </div>
                 </div>    
-                <div class="col p-0">
-                    <div class="section-container section-br">
-                        <div class="">
+                <div class="col  section-br p-0">
+                    <div class="section-container">
+                        <div class="p-1">
                             <h2>{{blogPosts_count}}</h2>
-                            <small class="d-block">POSTS</small>
+                            <small class="d-block">{{'blog posts'|upper}}</small>
                         </div>
                     </div>
                 </div>    
                 <div class="col p-0">
                     <div class="section-container">
-                        <div class="">
-                            <h2>1</h2>
-                            <small class="d-block">YEAR</small>
+                        <div class="p-1">
+                            <h2>{{site.init_date|timesince}}</h2>
+                            <small class="d-block">{{'scince'|upper}}</small>
                         </div>
                     </div>
                 </div>    

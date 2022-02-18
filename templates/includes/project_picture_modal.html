@@ -1,0 +1,20 @@
+{% load static %}
+
+<!-- Modal -->
+
+  <div class="modal fade pr-0" id="picture{{obj.pk}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-xx modal-dialog-centered" role="document">
+      <div class="modal-content modal-bg">
+        <div class="modal-header pb-0 border-none">
+
+        </div>
+        <div class="modal-body pt-0">
+          {% if photo.photo %}
+            <img src="{{obj.picture.url}}" alt="-" class="d-block w-100" style="width: 100%;">
+          {% else %}
+            <img src="{% static 'images/unknown-person.png' %}" class="rounded-circle" alt="HamdyRamzy" class="d-block w-100" style="width: 100%;">
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
