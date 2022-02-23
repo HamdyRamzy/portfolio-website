@@ -615,3 +615,12 @@ hr{
 	color: var(--resumeBtnHoverColor);
 }
 
+.carousel-indicators{
+	bottom: -32px !important;
+}
+.carousel-indicators li{
+	background-color: var(--secondaryText) !important;
+}
+.arrow-span{
+	color: #c2c2c2 !important;
+}

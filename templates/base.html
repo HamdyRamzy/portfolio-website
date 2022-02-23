@@ -17,8 +17,8 @@
         <meta name="twitter:site_name" content="Hamdy Ramzy">  
         <meta name="twitter:title" content="Hamdy Ramzy">
         <meta name="twitter:description" content="You can find everything about me, my previous work, and contact information here.">
-        <meta name="twitter:url" content="https://5150-197-62-232-241.ngrok.io/">
-        <meta name="twitter:image" content="https://5150-197-62-232-241.ngrok.io{{owner.photo.url}}">
+        <meta name="twitter:url" content="https://aefb-197-62-6-141.ngrok.io/">
+        <meta name="twitter:image" content="https://aefb-197-62-6-141.ngrok.io{{owner.photo.url}}">
         
         <meta property="og:image:width" content="2000">
         <meta property="og:image:height" content="1056">
@@ -35,6 +35,8 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/github-calendar-responsive.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/default.css' %}">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/hybrid.min.css">
+
 
 </head>
 
@@ -186,7 +188,7 @@
                         </div>
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="h5-card-head">Latest Blog Posts</h5>
+                                <h5 class="h5-card-head">Latest Blog Articles</h5>
                                 <div class="row postsContainer">
                                     {%for post in blogPosts%}
                                         <div class="col-lg-6 col-md-6 col-sm-12">
@@ -320,50 +322,22 @@
                             </ul>
                         </div>
                     </div>
+
+                    <div class="card">
+                        <div class="card-body">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item"><h2 class="text-center">{{visitors_count}}</h2><small class="d-block text-center">{{'unique visitors'|upper}}</small></li>
+                                <li class="list-group-item"><h2 class="text-center">{{projectPosts_count}}</h2><small class="d-block text-center">{{'my projects'|upper}}</small></li>
+                                <li class="list-group-item"><h2 class="text-center">{{blogPosts_count}}</h2><small class="d-block text-center">{{'blog articles'|upper}}</small></li>
+                                <li class="list-group-item"><h2 class="text-center">{{site.init_date|timesince}}</h2><small class="d-block text-center">{{'scince'|upper}}</small></li>
+                            </ul>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
-        <div class="card">
-            <div class="row section-p card-body">
-                <div class="col  section-br p-0">
-                    <div class="section-container">
-                        <div class="p-1">
-                            <h2>{{visitors_count}}</h2>
-                            <small class="d-block">{{'unique visitors'|upper}}</small>
-                        </div>
-                    </div>
-                </div>    
-                <div class="col  section-br p-0">
-                    <div class="section-container">
-                        <div class="p-1">
-                            <h2>{{projectPosts_count}}</h2>
-                            <small class="d-block">{{'my projects'|upper}}</small>
-                        </div>
-                    </div>
-                </div>    
-                <div class="col  section-br p-0">
-                    <div class="section-container">
-                        <div class="p-1">
-                            <h2>{{blogPosts_count}}</h2>
-                            <small class="d-block">{{'blog posts'|upper}}</small>
-                        </div>
-                    </div>
-                </div>    
-                <div class="col p-0">
-                    <div class="section-container">
-                        <div class="p-1">
-                            <h2>{{site.init_date|timesince}}</h2>
-                            <small class="d-block">{{'scince'|upper}}</small>
-                        </div>
-                    </div>
-                </div>    
 
-
-                
-
-            </div>
-            
-        </div>
 
     </div>
     <script src="{% static 'js/githun-calender.min.js' %}"></script>
@@ -397,7 +371,11 @@
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
     <script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script>
     <script src="{% static 'js/top-button.js' %}"></script>   
+    <script src="{% static 'js/index.js' %}"></script>   
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+
     <script>AOS.init();</script>
 
     <!-- End js files -->

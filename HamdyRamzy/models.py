@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from ckeditor_uploader.fields import RichTextUploadingField
 from taggit.managers import TaggableManager
 from django.utils.text import slugify
+from django_resized import ResizedImageField
 
 # Create owner model.
 class Owner(models.Model):
@@ -74,7 +75,7 @@ class Certificate(models.Model):
     user = models.ForeignKey(User, related_name='certificate', on_delete=models.CASCADE)
     title = models.CharField(null=True, blank=True, max_length=300)
     issue_organization = models.CharField(null=True, blank=True, max_length=300)
-    organization_logo = models.ImageField(null=True, blank=True, upload_to='organization logos/%y/%m/%d')
+    organization_logo = ResizedImageField(null=True, blank=True, upload_to='organization logos/%y/%m/%d')
     issue_date = models.DateField(null=True, blank=True, auto_now=False, auto_now_add=False)
     credential_id = models.CharField(null=True, blank=True, max_length=300)
     credential_url = models.URLField(null=True, blank=True, max_length=200)
@@ -96,7 +97,7 @@ class Work(models.Model):
     user = models.ForeignKey(User, related_name='work', on_delete=models.CASCADE)
     title = models.CharField(null=True, blank=True, max_length=500)
     employment_type = models.CharField(choices=employment_type, null=True, blank=True, max_length=300)
-    company_logo = models.ImageField(null=True, blank=True, upload_to='company logos/%y/%m/%d')
+    company_logo = ResizedImageField(null=True, blank=True, upload_to='company logos/%y/%m/%d')
     company_name = models.CharField(null=True, blank=True, max_length=500)
     start_date = models.DateField(null=True, blank=True, auto_now=False, auto_now_add=False)
     end_date = models.DateField(null=True, blank=True, auto_now=False, auto_now_add=False)
@@ -113,13 +114,15 @@ class BlogPost(models.Model):
     title = models.CharField(null=True, blank=True, max_length=400)
     description = models.CharField(null=True, blank=True, max_length=1000)
     content = RichTextUploadingField()
-    post_picture = models.ImageField(null=True, upload_to='blog post pictures/%y/%m/%d')
+    post_picture = ResizedImageField(null=True, upload_to='blog post pictures/%y/%m/%d')
     uploaded_date = models.DateField(null=True, blank=True)
     tags = TaggableManager()
     time = models.PositiveIntegerField(null=True, blank=True)
     views = models.PositiveIntegerField(default=0) 
     slug = models.SlugField(null=True, blank=True, max_length=255, unique=True)
+    type = models.CharField(null=True, blank=True, max_length=400, default='blog_post')
 
+    
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.title)
@@ -134,12 +137,13 @@ class ProjectPost(models.Model):
     title = models.CharField(null=True, blank=True, max_length=400)
     description = models.CharField(null=True, blank=True, max_length=1000)
     content = RichTextUploadingField()
-    post_picture = models.ImageField(null=True, upload_to='project post pictures/%y/%m/%d')
+    post_picture = ResizedImageField(null=True, upload_to='project post pictures/%y/%m/%d')
     uploaded_date = models.DateField(null=True, blank=True)
     tags = TaggableManager()    
     time = models.PositiveIntegerField(null=True, blank=True)
     views = models.PositiveIntegerField(default=0) 
     slug = models.SlugField(null=True, blank=True, max_length=255, unique=True)
+    type = models.CharField(null=True, blank=True, max_length=400, default='project_post')
 
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -152,7 +156,7 @@ class ProjectPost(models.Model):
 
 class Project_image(models.Model):
     project = models.ForeignKey(ProjectPost, related_name='project', on_delete=models.CASCADE)
-    picture = models.ImageField(null=True, upload_to='project pictures/%y/%m/%d')
+    picture = ResizedImageField(null=True, upload_to='project pictures/%y/%m/%d')
     description = models.CharField(null=True, blank=True, max_length=1000)
     def __str__(self):
         return self.description

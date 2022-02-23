@@ -58,13 +58,16 @@
         </div>
     </div>
     <div class="container">
-        <h4 class="text-center mt-5 shares">Share article</h4>
+        <p class="text-center mt-5 shares" style="font-size: 20px;">Share article</p>
 
         <div class="text-center mt-3" style="display: flex; justify-content:center">
-            {% post_to_facebook post.get_absolte_uri '<i class="fab fa-facebook icon-sharing mr-4"></i>' %}
+            {% post_to_facebook post.get_absolte_uri '<i class="fab fa-facebook-square icon-sharing mr-3"></i>' %}
+            {% post_to_twitter "{{post.title}}"  post.get_absolte_uri '<i class="fab fa-twitter-square icon-sharing mr-3"></i>' %}
             {% post_to_linkedin post.get_absolte_uri  %}
-            {% post_to_twitter "{{post.title}}"  post.get_absolte_uri '<i class="fab fa-twitter icon-sharing ml-4"></i>' %}
+
         </div>
+        {% if related_posts %}
+
         <div class="mt-5">
             <h2 class="text-center">Related posts</h2>
             <div class="row mt-5">
@@ -92,7 +95,7 @@
                 {%endfor%}
             </div>
         </div>
-
+        {% endif %}
     </div>    
 
         

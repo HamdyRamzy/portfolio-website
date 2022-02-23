@@ -1,11 +1,10 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
-
 from HamdyRamzy.forms import ContactMeForm
 from .models import Owner, Contact, SocialMedia, Skill, Language, Certificate, Work, BlogPost, ProjectPost, Visitor, SiteInfo, Project_image
 from django.utils import timezone
 from .utils import get_ip_address
-
+from itertools import chain
 
 #Render base page
 def base(request):
@@ -151,28 +150,36 @@ def post_detail(request, slug):
         'post': post,
         'related_posts':related_posts,
     }
-    print(post.pk)
     return render(request, 'post_detail.html', context)
 
 #Handle search about bolg posts and projects.
 def search(request):
     if request.method == 'GET':
         search_str = request.GET['searchField']
+
         posts = BlogPost.objects.filter(title__icontains = search_str).order_by('-uploaded_date')|BlogPost.objects.filter(description__icontains = search_str).order_by('-uploaded_date')
         projects = ProjectPost.objects.filter(title__icontains = search_str).order_by('-uploaded_date')|ProjectPost.objects.filter(description__icontains = search_str).order_by('-uploaded_date')
-        posts_count = posts.count()        
-        projects_count = projects.count()
+        posts_count = posts.count()   
+        projects_count = projects.count() 
+        all_results = list(chain(posts, projects))
+        results_count = (posts_count + projects_count)
+        
         context = {'posts':posts,
                 'projects':projects,
                 'posts_count':posts_count,
                 'projects_count':projects_count,
-                'search_str':search_str}
+                'search_str':search_str,
+                'results_count':results_count,
+                'all_results':all_results,
+                }
         return render(request, 'search.html', context)    
 
 
+def sent(request):        
+    return render(request, 'sent.html')        
+
 
 def sent(request):        
-
     return render(request, 'sent.html')        
 
 
@@ -188,12 +195,6 @@ def visitors(request):
     else:
         visitor.last_visit = timezone.now()
         visitor.save()
-
     context = {'visitors_count': visitors_count,
             }    
     return context  
-
-
-
-
-

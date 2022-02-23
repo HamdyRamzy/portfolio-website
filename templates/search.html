@@ -6,10 +6,54 @@
 <body>
 {% block body %}
 <div class="container margin-container"> 
-<h2>The Results for :<span class="clip font-weight-bold"> {{search_str }}</span></h2>
+<h2 class="big-size">The Results for :<span class="clip font-weight-bold"> {{search_str }}</span></h2>
+    {% if results_count %}
+        <p>founded ({{posts_count}}) articles and ({{projects_count}}) projects.</p>
+    {% endif %}
+
+    <div class="row mt-5">
+
+        {% if not results_count %}
+
+            <h2 class="big-size mt-3 mb-5 p-4">No results match this query!</h2>
+
+        {% endif %}
+            
+            {%for result in all_results%}
+                                    
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                {% if result.type == 'blog_post' %}
+                    <a href="{% url 'post-detail' result.slug %}" class="text-decoration-none">
+                {% else %}
+                    <a href="{% url 'project-detail' result.slug %}" class="text-decoration-none">
+                {% endif %}        
+                    <div class="card background-header-img hvr-bob card-shadow" style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7) ), url({{result.post_picture.url}});">
+                        <div class="card-body text-center c-table">
+                            <div class="table-container">
+                                <h4 class="card-head table-text-color">{{result.title}}</h4>
+                                <p class="table-text-color">{{result.description}}</p>
+                                <small class="d-block table-text-color">
+                                    {% for tag in result.tags.all %}
+                                    #{{tag }}
+                                    {%endfor%}
+                                </small>
+                                <small class="table-text-color">{{result.uploaded_date}} · {{result.time}} min read</small>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            {%endfor%}
 
 
 
+
+
+
+
+
+    </div>
 
 
 {% endblock %}
