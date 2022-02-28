@@ -12,7 +12,7 @@ def base(request):
     owner = Owner.objects.all().first()
     links = SocialMedia.objects.all()
     contacts = Contact.objects.all().exclude(name='phone')
-    phone = Contact.objects.get(name='phone')
+    #phone = Contact.objects.get(name='phone')
     skills = Skill.objects.all()[:4]
     all_skills = Skill.objects.all()
     skills_count = Skill.objects.all().count()
@@ -38,7 +38,7 @@ def base(request):
         'all_skills':all_skills,
         'skills_count':skills_count,
         'contacts':contacts,
-        'phone':phone,
+        #'phone':phone,
         'languages':languages,
         'works':works,
         'works_count':works_count,
@@ -91,7 +91,7 @@ def blog(request):
 def contact(request):
     #Contact page logic
     links = SocialMedia.objects.all().exclude(name='github')
-    phone = Contact.objects.get(name='phone')
+    #phone = Contact.objects.get(name='phone')
     if request.method == 'POST':
         form = ContactMeForm(request.POST)
         sender = get_ip_address(request)
@@ -104,14 +104,14 @@ def contact(request):
             context = {'form': form,
             'contact_page': 'active',
             'links':links,
-            'phone':phone,
+            #'phone':phone,
             }
             return render(request, 'contact.html', context)     
     form = ContactMeForm()
     context = {'form': form,
     'contact_page': 'active',
     'links':links,
-    'phone':phone,
+    #'phone':phone,
     }
     return render(request, 'contact.html', context)  
 
