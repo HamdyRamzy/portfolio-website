@@ -28,7 +28,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&family=Russo+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css" integrity="sha384-xxzQGERXS00kBmZW/6qxqJPyxW3UR0BPsL4c8ILaIWXva5kFi7TxkIIaMiKtqV1Q" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-    <link rel="shortcut icon" type="" href="{% static 'images/favicon.png' %} ">
+    <link rel="shortcut icon" type="" href="{% static 'images/favicon.ico' %} ">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" type="text/css" href="{% static 'css/hover-min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
@@ -137,7 +137,7 @@
                         <div class="resume-btn-container">
                             <a href="{{owner.resume.url}}" class="btn p-2 resume-btn shadow-none" download="Hamdy's Resume">
                                 DOWNLOAD RESUME
-                              </a>
+                            </a>
                         </div>
 
                     </div>
@@ -223,6 +223,7 @@
 
                             </div>
                         </div>
+                        {% if works %}
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="h5-card-head">Work Experience</h5>
@@ -255,6 +256,9 @@
                             <a type="button" class="text-center seeMoreBtn" data-toggle="modal" data-target="#works"><span>See all {{works_count}} experiences</span></a>
                             {% endif %}
                         </div>
+                        {% endif %}
+
+                        {% if certificates %}
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="h5-card-head">licenses & certifications</h5>
@@ -285,6 +289,7 @@
                             <a type="button" class="text-center seeMoreBtn" data-toggle="modal" data-target="#certificates"><span>See all {{certificates_count}} certifications</span></a>
                             {% endif %}
                         </div>
+                        {% endif %}
                 </div>
                 <div class="col-lg-4 col-sm-12 rightSection">
                     <div class="card">
