@@ -28,7 +28,6 @@ def base(request):
     projectPosts = ProjectPost.objects.all().order_by('-uploaded_date')[:2]
     projectPosts_count = ProjectPost.objects.all().count()
     site = SiteInfo.objects.all().first()
-    print(phone)
     context = {
         'home_page': 'active',
         'owner':owner,
