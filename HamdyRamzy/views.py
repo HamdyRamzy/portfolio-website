@@ -156,8 +156,8 @@ def search(request):
     if request.method == 'GET':
         search_str = request.GET['searchField']
 
-        posts = BlogPost.objects.filter(title__icontains = search_str).order_by('-uploaded_date')|BlogPost.objects.filter(description__icontains = search_str).order_by('-uploaded_date')
-        projects = ProjectPost.objects.filter(title__icontains = search_str).order_by('-uploaded_date')|ProjectPost.objects.filter(description__icontains = search_str).order_by('-uploaded_date')
+        posts = BlogPost.objects.filter(title__icontains = search_str.replace(" ", "")).order_by('-uploaded_date')|BlogPost.objects.filter(description__icontains = search_str.replace(" ", "")).order_by('-uploaded_date')
+        projects = ProjectPost.objects.filter(title__icontains = search_str.replace(" ", "")).order_by('-uploaded_date')|ProjectPost.objects.filter(description__icontains = search_str.replace(" ", "")).order_by('-uploaded_date')
         posts_count = posts.count()   
         projects_count = projects.count() 
         all_results = list(chain(posts, projects))
