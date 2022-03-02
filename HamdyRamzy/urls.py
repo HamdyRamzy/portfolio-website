@@ -14,4 +14,4 @@ urlpatterns = [
 	path('contact/', views.contact, name="contact"),
 	path('visitors/', views.visitors, name="visitors"),
 
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] 
