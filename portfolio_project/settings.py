@@ -12,7 +12,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
-
+from dotenv import load_dotenv
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,9 +28,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-x%1r!g21d*wn@@bia+z9k3ue&s15h054t%9rztczu1bk%_i!&&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['137.184.82.44']
+ALLOWED_HOSTS = ['*', 'b349-41-43-137-177.eu.ngrok.io']
 
 
 # Application definition
@@ -171,16 +172,15 @@ WSGI_APPLICATION = 'portfolio_project.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'hamdydb',
-            'USER': 'hamdydbuser',
-            'PASSWORD': 'hamdY0101736846h',
-            'HOST': 'localhost',
-            'PORT': '',
-        }
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'portfolio_project',
+        'USER': 'postgres',
+        'PASSWORD': '123123',
+        'HOST': 'localhost',
+        'PORT': '5000',
     }
-
+}
 
 
 # Password validation
@@ -220,11 +220,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static_in_env')]
 
-# Add these new lines
-
-STATIC_ROOT =  BASE_DIR / 'static'
-MEDIA_ROOT =  BASE_DIR / 'media'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
