@@ -170,16 +170,16 @@ WSGI_APPLICATION = 'portfolio_project.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'portfolio_project',
-        'USER': 'postgres',
-        'PASSWORD': '123123',
-        'HOST': 'localhost',
-        'PORT': '5000',
-    }
+if DEBUG:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'portfolio_project',
+            'USER': 'postgres',
+            'PASSWORD': '123123',
+            'HOST': 'localhost',
+            'PORT': '5000',
+        }
 }
 
 
