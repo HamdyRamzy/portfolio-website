@@ -2,39 +2,39 @@
 {% load static %}
 {% load social_share %}
 
-    {%block title%}Hamdy Ramzy - {{project.title}}{%endblock%}
-    {% block extra_head_tags %}
-        <meta property="og:site_name" content="Hamdy Ramzy">
-        <meta property="og:type" content="article"> 
-        <meta property="og:title" content="{{project.title}}">
-        <meta property="og:description" content="{{project.description}}">
-        <meta name="og:url" content="http://137.184.82.44/blog/{{project.slug}}">
-        <meta property="og:image" itemprop="image" content="{{project.post_picture.url}}">
-        
-        <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:site_name" content="Hamdy Ramzy">
-        <meta name="twitter:type" content="article">    
-        <meta name="twitter:title" content="{{project.title}}">
-        <meta name="twitter:description" content="{{project.description}}">
-        <meta name="twitter:url" content="http://137.184.82.44/blog/{{project.slug}}">
-        <meta name="twitter:image" content="http://137.184.82.44{{project.post_picture.url}}">
-        
-        <meta property="og:image:width" content="2000">
-        <meta property="og:image:height" content="1056">
-    {% endblock %}
+{%block title%}Hamdy Ramzy - {{project.title}}{%endblock%}
+{% block extra_head_tags %}
+<meta property="og:site_name" content="Hamdy Ramzy">
+<meta property="og:type" content="article">
+<meta property="og:title" content="{{project.title}}">
+<meta property="og:description" content="{{project.description}}">
+<meta name="og:url" content="http://137.184.82.44/blog/{{project.slug}}">
+<meta property="og:image" itemprop="image" content="{{project.post_picture.url}}">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site_name" content="Hamdy Ramzy">
+<meta name="twitter:type" content="article">
+<meta name="twitter:title" content="{{project.title}}">
+<meta name="twitter:description" content="{{project.description}}">
+<meta name="twitter:url" content="http://137.184.82.44/blog/{{project.slug}}">
+<meta name="twitter:image" content="http://137.184.82.44{{project.post_picture.url}}">
+
+<meta property="og:image:width" content="2000">
+<meta property="og:image:height" content="1056">
+{% endblock %}
 
 <body>
 
-{% block body %}
+    {% block body %}
 
     <div class="container post-header">
         <div class="">
             <div class="">
                 <div class="text-center">
-                    <p class="d-inline">{{project.uploaded_date}}</p> 
-                    <p class="font-weight-bold d-inline">  ·  </p>
+                    <p class="d-inline">{{project.uploaded_date}}</p>
+                    <p class="font-weight-bold d-inline"> · </p>
                     <p class="d-inline">{{project.time}} min read</p>
-                    <p class="font-weight-bold d-inline">  ·  </p>
+                    <p class="font-weight-bold d-inline"> · </p>
                     <p class="d-inline">{{project.views}} views</p>
                 </div>
                 <h2 class="bigger-size text-center">{{project.title}}</h2>
@@ -48,9 +48,10 @@
             </div>
         </div>
     </div>
-        <div class="card border-0 background-detail-header-img rounded-0 margin-container-detail" style="background: url({{project.post_picture.url}});">
+    <div class="card border-0 background-detail-header-img rounded-0 margin-container-detail"
+        style="background: url({{project.post_picture.url}});">
 
-        </div>
+    </div>
 
 
     <div class="container post-content">
@@ -60,7 +61,7 @@
             {{project.content|safe}}
         </div>
 
-        {% if  project_images %}
+        {% if project_images %}
         <p class="text-center mt-5" style="font-size: 20px;">Project templates</p>
 
         <div class="card mt-3 shadow rounded-0" style="padding: 0 11px">
@@ -68,62 +69,70 @@
                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
                         {% for obj in project_images %}
-                            {% if forloop.first %}
-                                <li data-target="#carouselExampleIndicators" data-slide-to="{{forloop.counter0}}" class="active"></li>
-                            {% else %}
-                                <li data-target="#carouselExampleIndicators" data-slide-to="{{forloop.counter0}}"></li>
-                            {% endif %}
+                        {% if forloop.first %}
+                        <li data-target="#carouselExampleIndicators" data-slide-to="{{forloop.counter0}}"
+                            class="active"></li>
+                        {% else %}
+                        <li data-target="#carouselExampleIndicators" data-slide-to="{{forloop.counter0}}"></li>
+                        {% endif %}
                         {% endfor %}
                         <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                     </ol>
-                    
+
                     <div class="carousel-inner">
                         {% for obj in project_images %}
-                            {% if forloop.first %}
-                                <div class="carousel-item active  ">
+                        {% if forloop.first %}
+                        <div class="carousel-item active  ">
                             {% else %}
-                                <div class="carousel-item">
-                            {% endif %}
-                            <a type="button" class="" data-toggle="modal" data-target="#picture{{obj.pk}}">
-                                <img class="d-block w-100" src="{{obj.picture.url}}" alt="{{obj.description}}">               
-                            </a>
+                            <div class="carousel-item">
+                                {% endif %}
+                                <a type="button" class="" data-toggle="modal" data-target="#picture{{obj.pk}}">
+                                    <img class="d-block w-100" src="{{obj.picture.url}}" alt="{{obj.description}}">
+                                </a>
                             </div>
                             {% include 'includes/project_picture_modal.html' %}
-                        {% endfor %}
+                            {% endfor %}
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
+                            data-slide="prev">
+                            <span class="arrow-span" aria-hidden="true"><i
+                                    class="bi bi-caret-left-fill big-size"></i></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
+                            data-slide="next">
+                            <span class="arrow-span" aria-hidden="true"><i
+                                    class="bi bi-caret-right-fill big-size "></i></span>
+                            <span class="sr-only">Next</span>
+                        </a>
                     </div>
-                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                        <span class="arrow-span" aria-hidden="true" ><i class="bi bi-caret-left-fill big-size"></i></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                        <span class="arrow-span" aria-hidden="true" ><i class="bi bi-caret-right-fill big-size "></i></span>
-                        <span class="sr-only">Next</span>
-                    </a>
                 </div>
             </div>
+            {%endif%}
+
+
         </div>
-        {%endif%}
+        <div class="container">
 
 
-    </div>
-    <div class="container">
+            <p class="text-center mt-5 shares" style="font-size: 20px;">Share project</p>
+            <div class="text-center mt-3" style="display: flex; justify-content:center">
+                {% post_to_facebook project.get_absolte_uri '<i class="fab fa-facebook-square icon-sharing mr-3"></i>'
+                %}
+                {% post_to_twitter "{{project.title}}" project.get_absolte_uri '<i
+                    class="fab fa-twitter-square icon-sharing mr-3"></i>' %}
+                {% post_to_linkedin project.get_absolte_uri %}
+            </div>
 
-
-        <p class="text-center mt-5 shares" style="font-size: 20px;">Share project</p>
-        <div class="text-center mt-3" style="display: flex; justify-content:center">
-            {% post_to_facebook project.get_absolte_uri '<i class="fab fa-facebook-square icon-sharing mr-3"></i>' %}
-            {% post_to_twitter "{{project.title}}" project.get_absolte_uri '<i class="fab fa-twitter-square icon-sharing mr-3"></i>' %}
-            {% post_to_linkedin project.get_absolte_uri  %}
-        </div>
-
-        {% if related_projects %}
-        <div class="mt-5">
-            <h2 class="text-center">Related projects</h2>
-            <div class="row mt-5">
-                {%for project in related_projects%}
+            {% if related_projects %}
+            <div class="mt-5">
+                <h2 class="text-center">Related projects</h2>
+                <div class="row mt-5">
+                    {%for project in related_projects%}
                     <div class="col-lg-4">
-                        <a href="{% url 'project-detail' project.slug %}" class="text-decoration-none">    
-                            <div class="card background-header-img hvr-bob card-shadow" style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url({{project.post_picture.url}});">
+                        <a href="{% url 'project-detail' project.slug %}" class="text-decoration-none">
+                            <div class="card background-header-img hvr-bob card-shadow"
+                                style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url({{project.post_picture.url}});">
                                 <div class="card-body text-center c-table">
                                     <div class="table-container">
                                         <h4 class="card-head table-text-color">{{project.title}}</h4>
@@ -134,28 +143,29 @@
                                             {%endfor%}
                                         </small>
                                         <small class="table-text-color">{{project.uploaded_date}}</small>
-                                        <span class="table-text-color font-weight-bold">  ·  </span>
+                                        <span class="table-text-color font-weight-bold"> · </span>
                                         <small class="table-text-color">{{project.time}} min read</small>
                                     </div>
                                 </div>
                             </div>
                         </a>
                     </div>
-                {%endfor%}
+                    {%endfor%}
+                </div>
             </div>
+            {% endif %}
         </div>
-        {% endif %}
-    </div>    
 
-        
+
     </div>
 
 
 
 
-{% endblock %}  
+    {% endblock %}
 
 
 
 </body>
+
 </html>

@@ -6,13 +6,13 @@ Log In - Hamdy Ramzy
 {% endblock %}
 
 {% block body %}
-<div class="container margin-container"> 
-<div class="mt-5">
-  <div class="col-lg-6 col-sm-12"> 
-    <h3 class="text-center">Login</h3>      
-    <div class="card mt-3">
-      <div class="card-body">
-        <form method="POST" novalidate>
+<div class="container margin-container">
+  <div class="mt-5">
+    <div class="col-lg-6 col-sm-12">
+      <h3 class="text-center">Login</h3>
+      <div class="card mt-3">
+        <div class="card-body">
+          <form method="POST" novalidate>
             {% csrf_token %}
             {% include 'includes/form.html' %}
             <button type="submit" class="btn submit-button shadow-none">Login</button>
@@ -22,8 +22,8 @@ Log In - Hamdy Ramzy
             </div>
           </form>
         </div>
+      </div>
     </div>
   </div>
-</div>
 
-{% endblock %}
+  {% endblock %}

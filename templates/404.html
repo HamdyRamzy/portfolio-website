@@ -1,35 +1,38 @@
 {% extends 'base.html' %}
 {% load static %}
 
-    {%block title%}Hamdy Ramzy - 404{%endblock%}
-    {% block extra_head_tags %}
-    <meta property="og:site_name" content="Hamdy Ramzy">
-    <meta property="og:title" content="Hamdy Ramzy">
-    <meta property="og:description" content="You can find everything about me, my previous work, and contact information here.">
-    <meta name="og:url" content="http://137.184.82.44/">
-    <meta property="og:image" content="{{owner.photo.url}}">
-    
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site_name" content="Hamdy Ramzy">  
-    <meta name="twitter:title" content="Hamdy Ramzy">
-    <meta name="twitter:description" content="You can find everything about me, my previous work, and contact information here.">
-    <meta name="twitter:url" content="http://137.184.82.44/">
-    <meta name="twitter:image" content="http://137.184.82.44{{owner.photo.url}}">
-    
-    <meta property="og:image:width" content="2000">
-    <meta property="og:image:height" content="1056">
-  {% endblock %}
+{%block title%}Hamdy Ramzy - 404{%endblock%}
+{% block extra_head_tags %}
+<meta property="og:site_name" content="Hamdy Ramzy">
+<meta property="og:title" content="Hamdy Ramzy">
+<meta property="og:description"
+  content="You can find everything about me, my previous work, and contact information here.">
+<meta name="og:url" content="http://137.184.82.44/">
+<meta property="og:image" content="{{owner.photo.url}}">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site_name" content="Hamdy Ramzy">
+<meta name="twitter:title" content="Hamdy Ramzy">
+<meta name="twitter:description"
+  content="You can find everything about me, my previous work, and contact information here.">
+<meta name="twitter:url" content="http://137.184.82.44/">
+<meta name="twitter:image" content="http://137.184.82.44{{owner.photo.url}}">
+
+<meta property="og:image:width" content="2000">
+<meta property="og:image:height" content="1056">
+{% endblock %}
+
 <body>
   {% block body %}
-  <div class="container margin-container"> 
-  <div class="message-container">
-    <h1 class="bigger-size">404</h1>
-    <h2>This page isn't available</h2>
-    <p>Page not founded. Check to see if the link you're trying to open is correct.</p>
-    <p>Try going back to my homepage.</p>
-    <a href="/" class="btn p-2 resume-btn shadow-none">
-      Homepage
-    </a>
-  </div>
-  {% endblock %}
-</body>  
+  <div class="container margin-container">
+    <div class="message-container">
+      <h1 class="bigger-size">404</h1>
+      <h2>This page isn't available</h2>
+      <p>Page not founded. Check to see if the link you're trying to open is correct.</p>
+      <p>Try going back to my homepage.</p>
+      <a href="/" class="btn p-2 resume-btn shadow-none">
+        Homepage
+      </a>
+    </div>
+    {% endblock %}
+</body>
