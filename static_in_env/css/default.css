@@ -572,7 +572,7 @@ hr{
 	padding: 2.25rem;
 }
 .margin-top{
-	margin-top: 55px;
+	margin-top: 40px;
 }
 .margin-container-detail{
 	margin-top: 70px;
@@ -623,4 +623,15 @@ hr{
 }
 .arrow-span{
 	color: #c2c2c2 !important;
+}
+.carousel-image-cover{
+	position: absolute;
+    object-fit:cover;
+    width: 100%;
+    top: 0;
+    left: 0;
+	height: 400px !important;
+}
+.carousel-item-height{
+	height: 400px !important;
 }
