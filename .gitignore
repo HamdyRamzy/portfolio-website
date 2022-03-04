@@ -4,6 +4,7 @@
 *.pot
 *.pyc
 __pycache__/
+media/
 db.sqlite3
 .env
 .venv
@@ -12,3 +13,4 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+media
