@@ -616,7 +616,7 @@ hr{
 }
 
 .carousel-indicators{
-	bottom: -32px !important;
+	bottom: -34px !important;
 }
 .carousel-indicators li{
 	background-color: var(--secondaryText) !important;
@@ -626,7 +626,7 @@ hr{
 }
 .carousel-image-cover{
 	position: absolute;
-    object-fit:cover;
+    object-fit:contain;
     width: 100%;
     top: 0;
     left: 0;

@@ -12,17 +12,14 @@ def base(request):
     owner = Owner.objects.all().first()
     links = SocialMedia.objects.all()
     contacts = Contact.objects.all().exclude(name='phone')
-    phone = Contact.objects.get(name='phone')
+    phone = get_object_or_404(Contact, name='phone')
     skills = Skill.objects.all()[:4]
     all_skills = Skill.objects.all()
-    skills_count = Skill.objects.all().count()
     languages = Language.objects.all()
     works = Work.objects.all()[:3]
     all_works = Work.objects.all()
-    works_count = Work.objects.all().count()
     certificates = Certificate.objects.all()[:3]
     all_certificates = Certificate.objects.all()
-    certificates_count = Certificate.objects.all().count()
     blogPosts = BlogPost.objects.all().order_by('-uploaded_date')[:2]
     blogPosts_count = BlogPost.objects.all().count()
     projectPosts = ProjectPost.objects.all().order_by('-uploaded_date')[:2]
@@ -35,15 +32,12 @@ def base(request):
         'skills':skills,
         'all_works':all_works,
         'all_skills':all_skills,
-        'skills_count':skills_count,
         'contacts':contacts,
         'phone':phone,
         'languages':languages,
         'works':works,
-        'works_count':works_count,
         'certificates':certificates,
         'all_certificates':all_certificates,
-        'certificates_count':certificates_count,
         'blogPosts':blogPosts,
         'projectPosts':projectPosts,
         'blogPosts_count':blogPosts_count,

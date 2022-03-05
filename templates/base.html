@@ -266,8 +266,8 @@
                             {% endif %}
                             {%endfor%}
                         </div>
-                        {% if works_count < 3 %} <a type="button" class="text-center seeMoreBtn" data-toggle="modal"
-                            data-target="#works"><span>See all {{works_count}} experiences</span></a>
+                        {% if all_works.count < 3 %} <a type="button" class="text-center seeMoreBtn" data-toggle="modal"
+                            data-target="#works"><span>See all {{all_works.count}} experiences</span></a>
                             {% endif %}
                     </div>
                     {% endif %}
@@ -303,8 +303,8 @@
                             {% endif %}
                             {%endfor%}
                         </div>
-                        {% if certificates_count < 10 %} <a type="button" class="text-center seeMoreBtn"
-                            data-toggle="modal" data-target="#certificates"><span>See all {{certificates_count}}
+                        {% if all_certificates.count < 3 %} <a type="button" class="text-center seeMoreBtn"
+                            data-toggle="modal" data-target="#certificates"><span>See all {{all_certificates.count}}
                                 certifications</span></a>
                             {% endif %}
                     </div>
@@ -334,9 +334,9 @@
                                 {%endfor%}
                             </ul>
                         </div>
-                        {% if skills_count > 4 %}
+                        {% if all_skills.count > 4 %}
                         <a type="button" class="text-center seeMoreBtn" data-toggle="modal"
-                            data-target="#skills"><span>See all {{skills_count}} skills</span></a>
+                            data-target="#skills"><span>See all {{all_skills.count}} skills</span></a>
                         {% endif %}
                     </div>
                     <div class="card">

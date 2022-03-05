@@ -65,7 +65,7 @@
 
         <div class="card mt-3 shadow rounded-0" style="padding: 0 11px">
             <div class="card-body p-3 ">
-                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <div id="carouselExampleIndicators" class="carousel slide" data-interval="false" data-ride="carousel">
                     <ol class="carousel-indicators">
                         {% for obj in project_images %}
                             {% if forloop.first %}
@@ -74,7 +74,6 @@
                                 <li data-target="#carouselExampleIndicators" data-slide-to="{{forloop.counter0}}"></li>
                             {% endif %}
                         {% endfor %}
-                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                     </ol>
                     
                     <div class="carousel-inner carousel-inner-height">
