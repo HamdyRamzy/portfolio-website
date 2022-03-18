@@ -19,11 +19,9 @@
 	--headIconColor: #000000;
 	--headIconHoverColor: #fff;
 	--headIconBorderColor:	#000000;
-
 	--resumeBtnColor: #000000;
 	--resumeBtnHoverColor: #fff;
 	--resumeBtnBorderColor:	#000000;
-
 	--formBorderColor: rgba(0,0,0,.125);
 	--formBackgroundColor: #fff;
 	--ButtonBackgroundColor:white;
@@ -70,11 +68,9 @@
 	--headIconColor:#e4e4e4;
 	--headIconHoverColor: #161b22;
 	--headIconBorderColor:#e4e4e4;
-
 	--resumeBtnColor:#e4e4e4;
 	--resumeBtnHoverColor: #161b22;
 	--resumeBtnBorderColor:#e4e4e4;
-
 	--formBorderColor: #4b688d;
 	--formBackgroundColor: #1f2936;
 	--ButtonBackgroundColor:#4b688d;
@@ -197,6 +193,25 @@ hr{
 }
 .modal-bg{
 	background-color: var(--modalBackgroundColor);
+}
+.modal-dialog-picture{
+	width: 100% !important;
+	max-width: none !important;
+	height: 100% !important;
+	margin: 0 !important;
+}
+.modal-content-picture{
+	height: 100% !important;
+	border: 0;
+	border-radius: 0;
+}
+.modal-picture{
+	width: 100% !important;
+	position:absolute !important;
+	object-fit: contain !important;
+	top: 0;
+	left: 0;
+	height: 100% !important;
 }
 .search-btn{
 	background: var(--ButtonBackgroundColor);
