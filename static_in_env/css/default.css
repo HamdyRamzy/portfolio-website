@@ -606,7 +606,9 @@ hr{
 .nav-collapse-btn:focus{
 	outline: none !important;
 }
-
+.modal-x-btn:focus{
+	outline: none !important;
+}
 .modal-open {
     padding-right: 0px !important;
 }
