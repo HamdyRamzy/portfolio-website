@@ -31,6 +31,7 @@
         <hr>
       </div>
       <div class="cards-container mt-5">
+        {% if posts %}
         {%for post in posts%}
         {% ifequal forloop.counter|divisibleby:"2" True %}
 
@@ -92,6 +93,11 @@
       </div>
       {% endifequal %}
       {%endfor%}
+      {% else %}
+      <div class="alert alert-danger alert alert-danger w-100" role="alert">
+          No blog articles right now!
+      </div>
+      {% endif %}
   </div>
   <!--Start pagination-->
   <nav aria-label="..." class="text-center" style="margin-top: 120px;">

@@ -166,8 +166,8 @@
                         <div class="card-body">
                             <h5 class="h5-card-head">Latest Projects</h5>
                             <div class="row postsContainer">
+                                {% if projectPosts %}
                                 {%for project in projectPosts%}
-
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                     <a href="{% url 'project-detail' project.slug %}" class="text-decoration-none">
                                         <div class="card background-header-img hvr-bob card-shadow"
@@ -188,8 +188,12 @@
                                         </div>
                                     </a>
                                 </div>
-
                                 {%endfor%}
+                                {% else %}
+                                <div class="alert alert-danger alert alert-danger ml-3 w-100" role="alert">
+                                    No projects right now!
+                                </div>
+                                {% endif %}
                             </div>
                             <a href="/projects" class="see-more">View More<i class="bi bi-arrow-right-short"></i></a>
                         </div>
@@ -198,6 +202,7 @@
                         <div class="card-body">
                             <h5 class="h5-card-head">Latest Blog Articles</h5>
                             <div class="row postsContainer">
+                                {% if blogPosts %}
                                 {%for post in blogPosts%}
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                     <a href="{% url 'post-detail' post.slug %}" class="text-decoration-none">
@@ -220,6 +225,11 @@
                                     </a>
                                 </div>
                                 {%endfor%}
+                                {% else %}
+                                <div class="alert alert-danger alert alert-danger ml-3 w-100" role="alert">
+                                    No blog articles right now!
+                                </div>
+                                {% endif %}
                             </div>
                             <a href="/blog" class="see-more">View More<i class="bi bi-arrow-right-short"></i></a>
                         </div>

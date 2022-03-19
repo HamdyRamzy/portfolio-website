@@ -32,9 +32,9 @@
 
 
       <div class="cards-container mt-5">
+        {% if projects %}
         {%for project in projects%}
         {% ifequal forloop.counter|divisibleby:"2" True %}
-
         <div class="row mt-5" data-aos="fade-left" data-aos-once='true'>
           <div class="col-lg-6 ">
             <a href="{% url 'project-detail' project.slug %}" class="text-decoration-none">
@@ -87,6 +87,11 @@
         </div>
         {% endifequal %}
         {%endfor%}
+        {% else %}
+        <div class="alert alert-danger alert alert-danger w-100" role="alert">
+            No projects right now!
+        </div>
+        {% endif %}
       </div>
       <!--Start pagination-->
       <nav aria-label="..." class="text-center" style="margin-top: 120px;">
