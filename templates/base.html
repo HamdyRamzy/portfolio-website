@@ -365,10 +365,12 @@
                     <div class="card">
                         <div class="card-body">
                             <ul class="list-group list-group-flush">
+                                {% if request.user.is_superuser %}
                                 <li class="list-group-item">
                                     <h2 class="text-center">{{visitors_count}}</h2><small
-                                        class="d-block text-center">{{'unique visitors'|upper}}</small>
+                                        class="d-block text-center">{{'visitors'|upper}}</small>
                                 </li>
+                                {% endif %}
                                 <li class="list-group-item">
                                     <h2 class="text-center">{{projectPosts_count}}</h2><small
                                         class="d-block text-center">{{'my projects'|upper}}</small>
@@ -403,7 +405,7 @@
         <div class="col-lg-5 col-md-5 p-3">
             <h4 class="footer-color margin-none"><a href="/"
                     class="text-decoration-none footer-color logo-hvr">HAMDY</a></h4>
-            <small class="footer-color">Blog about web development and mobile application.</small>
+            <small class="footer-color">Personal profile of me to preview my previous work and write articles and my contact information.</small>
         </div>
         <div class="col-lg-4 col-md-4 p-3">
             <div class="footer-social">
